@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Реєстрація
+{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/registration/registration.css' %}">
+{% endblock %}
+
+{% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <div class = 'inputs'>
+            <label for="">Підтверди пароль</label>
+            <input type="password" name="password_confirmation">
+        </div>
+        <button class = 'create' type="submit">Створити акаунт</button>
+    </form>
+    <div class="modal-window">
+        <form class="modal-form" action="{% url 'validation' %}" method="post">
+            {% csrf_token %}
+            <input name="code" type="number">
+            <button>Підтвердити код</button>
+        </form>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}

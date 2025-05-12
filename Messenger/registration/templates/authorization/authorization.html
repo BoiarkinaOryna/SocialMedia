@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Авторизація
+{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/registration/registration.css' %}">
+{% endblock %}
+
+{% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Авторизуватися</button>
+    </form>
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}

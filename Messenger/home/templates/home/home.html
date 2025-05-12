@@ -1,0 +1,216 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/home/home.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="my-info">
+        <div class="about-me">
+            <div class="me">
+                <img class="my-avatar" src="{% static 'images/default-avatar.jpg' %}" alt="">
+                <div class="I-am-online"></div>
+                <span class="username">
+                    <p class="name">Lina Li</p>
+                    <p class="username">@thelili</p>
+                </span>
+            </div>
+            <div class="my-status">
+                <span>
+                    <p class="status-number">566</p>
+                    <p class="status-title">Дописи</p>
+                </span>
+                <div class="vtc-line"></div>
+                <span>
+                    <p class="status-number">12.1K</p>
+                    <p class="status-title">Читачі</p>
+                </span>
+                <div class="vtc-line"></div>
+                <span>
+                    <p class="status-number">222</p>
+                    <p class="status-title">Друзі</p>
+                </span>
+            </div>
+        </div>
+
+        <div class="friends">
+            <span class="top-text">
+                <p class="section-title">
+                    <img src="{% static 'images/friends-grey.png' %}" alt=""> Запити
+                </p>
+                <p class="see-all">Дивитись всі</p>
+            </span>
+            <div class="friend-requests">
+                <div class="request">
+                    <img class="avatar" src="{% static 'images/friend1.jpg' %}" alt="">
+                    <span class="friend-info">
+                        <p class="friend-name">Yehor Aung</p>
+                        <p class="friend-request-followers">4.3к підписників</p>
+                    </span>
+                </div>
+                <div class="request">
+                    <img class="avatar" src="{% static 'images/friend2.jpg' %}" alt="">
+                    <span class="friend-info">
+                        <p class="friend-name">Ann Ann</p>
+                        <p class="friend-request-followers">1.6к підписників</p>
+                    </span>
+                </div>
+                <div class="request">
+                    <img class="avatar" src="{% static 'images/friend3.jpg' %}" alt="">
+                    <span class="friend-info">
+                        <p class="friend-name">Yeugen Jenua</p>
+                        <p class="friend-request-followers">10.3к підписників</p>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="chats">
+            <span class="top-text">
+                <p class="section-title">
+                    <img src="{% static 'images/chats-grey.png' %}" alt=""> Повідомлення
+                </p>
+                <p class="see-all">Дивитись всі</p>
+            </span>
+            <div class="messages">
+                <div class="request">
+                    <img class="avatar" src="{% static 'images/friend4.jpg' %}" alt="">
+                    <span class="friend-info">
+                        <p class="friend-name">Mona Lisa</p>
+                        <p class="friend-message">Привіт! Як справи ?</p>
+                    </span>
+                </div>
+                <div class="request">
+                    <img class="avatar" src="{% static 'images/friend5.jpg' %}" alt="">
+                    <span class="friend-info">
+                        <p class="friend-name">Ann Ti</p>
+                        <p class="friend-message">Привіт!</p>
+                    </span>
+                </div>
+                <div class="request">
+                    <img class="avatar" src="{% static 'images/friend6.jpg' %}" alt="">
+                    <span class="friend-info">
+                        <p class="friend-name">Ness Ty</p>
+                        <p class="friend-message">Привіт!</p>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="social-media-feed">
+        <div class="create-publication">
+            <span class="thoughts">
+                <p class="what">Про що ти зараз думаєш?</p>
+            </span>
+            <div class="custom">
+                <div class="add-image">
+                    <img src="{% static 'images/add-image.png' %}" alt="">
+                </div>
+                <div class="add-emoji">
+                    <img src="{% static 'images/add-emoji.png' %}" alt="">
+                </div>
+                <div class="publish">
+                    <p>Публікація</p>
+                    <img src="{% static 'images/send.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="feed">
+            <div class="post">
+                <div class="creator">
+                    <div class="creator-info">
+                        <div class="main-info">
+                            <div class="avatar-container">
+                                <img class="avatar" src="{% static 'images/avatar1.jpg' %}" alt="">
+                                <div class="is-online"></div>
+                            </div>
+                            <p class="creator-name">X_AE_A-13</p>
+                        </div>
+                        <img class="signature" src="{% static 'images/signature.png' %}" alt="">
+                    </div>
+                    <img src="{% static 'images/dots.png' %}" alt="" class="dots">
+                </div>
+                <div class="post-content">
+                    <div class="post-text">
+                        <p>
+                            Інколи найкращі ідеї народжуються в тиші 🌿<br>
+                            Природа, книга і спокій — усе, що потрібно, аби перезавантажитись.
+                        </p>
+                        <p class="post-tags">
+                            #відпочинок #натхнення #життя #природа #читання #спокій #гармонія
+                        </p>
+                    </div>
+                    <div class="post-images">
+                        <div class="img-in-row">
+                            <img class="two-in-row-img" src="{% static 'images/post1.jpg' %}" alt="">
+                            <img class="two-in-row-img" src="{% static 'images/post2.jpg' %}" alt="">
+                        </div>
+                        <div class="img-in-row">
+                            <img class="three-in-row-img" src="{% static 'images/post3.jpg' %}" alt="">
+                            <img class="three-in-row-img" src="{% static 'images/post4.jpg' %}" alt="">
+                            <img class="three-in-row-img" src="{% static 'images/post5.jpg' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="aktives">
+                        <div class="likes">
+                            <img src="{% static 'images/likes.png' %}" alt="">
+                            <p>120 Вподобань</p>
+                        </div>
+                        <div class="views">
+                            <img src="{% static 'images/views.png' %}" alt="">
+                            <p>890 Переглядів</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="creator">
+                    <div class="creator-info">
+                        <div class="main-info">
+                            <div class="avatar-container">
+                                <img class="avatar" src="{% static 'images/avatar2.jpg' %}" alt="">
+                                <div class="is-offline"></div>
+                            </div>
+                            <p class="creator-name">Alex_03</p>
+                        </div>
+                    </div>
+                    <img src="{% static 'images/dots.png' %}" alt="" class="dots">
+                </div>
+                <div class="post-content">
+                    <div class="post-text">
+                        <p>
+                            буває такий настрій: просто лежиш і існуєш 😅 <br>
+                            чай в одній руці, телефон в іншій, думки десь у космосі 🌌 і знаєте шо? норм
+                        </p>
+                        <p class="post-tags">
+                            #вайб
+                        </p>
+                    </div>
+                    <div class="aktives">
+                        <div class="likes">
+                            <img src="{% static 'images/likes.png' %}" alt="">
+                            <p>120 Вподобань</p>
+                        </div>
+                        <div class="views">
+                            <img src="{% static 'images/views.png' %}" alt="">
+                            <p>890 Переглядів</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+    
+{% endblock %}

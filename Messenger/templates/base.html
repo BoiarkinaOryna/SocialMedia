@@ -1,0 +1,52 @@
+{% load static %}
+
+<html lang="en">
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        {% block links %}{% endblock %}
+    </head>
+    <body>
+        <header>
+            <img src="{% static 'images/logo.png' %}" alt="" class="logo">
+
+            <div class="header-content">
+                <div class="links">
+                    <div class="link">
+                        <img src="{% static 'images/home.png' %}" alt="">
+                        <p>Головна</p>
+                    </div>
+                    <div class="link">
+                        <img src="{% static 'images/my_posts.png' %}" alt="">
+                        <p>Мої публікації</p>
+                    </div>
+                    <div class="link">
+                        <img src="{% static 'images/friends.png' %}" alt="">
+                        <p>Друзі</p>
+                    </div>
+                    <div class="link">
+                        <img src="{% static 'images/chats.png' %}" alt="">
+                        <p>Чати</p>
+                    </div>
+                    <div class="link">
+                        <img src="{% static 'images/settings.png' %}" alt="">
+                        <p>Налаштування</p>
+                    </div>
+                </div>
+                <button class="logout">
+                    <img src="{% static 'images/logout.png' %}" alt="" class="vector">
+                    <p>Вихід</p>
+                </button>
+            </div>
+        </header>
+        {% block content %}
+            
+        {% endblock %}
+        
+        {% block scripts %}    
+        {% endblock %}
+    </body>
+</html>
