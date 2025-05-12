@@ -1,0 +1,47 @@
+form{
+    background-color: white;
+    position: fixed;
+    position: fixed;
+    width: 487px;
+    height: 552px;
+    top: 200px;
+    left: 250px;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+}
+input{
+    position: relative;
+    background-color: white;
+    bottom: 90px;
+    width: 399px;
+    height: 42px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+}
+.inputs{
+    position: relative;
+    /* bottom: 90px; */
+}
+.create{
+    width: 399px;
+    height: 52px;
+    font-size: 16px;
+    border-radius: 20px;
+    background-color: #543C52;
+    color: white;
+    position: fixed;
+    top: 600px;
+}
+
+.modal-window{
+    position: relative;
+    display: fixed;
+    left: 500px;
+}
+
+.modal-form{
+    position: absolute;
+}

@@ -1,0 +1,439 @@
+.my-info{
+    top: 104px;
+    left: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-radius: 10px;
+}
+
+.about-me, .friends, .chats{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    padding: 16px;
+    /* flex: 1 1 auto;    height: 249px; */
+    border: 1px solid #CDCED2;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+}
+
+.about-me{
+    padding: 16px 0px;
+    gap: 16px;
+}
+
+.me{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.my-avatar{
+    width: 96px;
+    height: 96px;
+    border-radius: 100%;
+}
+
+.I-am-online{
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    top: 70px;
+    left: 70px;
+    border: 2.25px solid #FFFFFF;
+    border-radius: 184.5px;
+    background-color: #22C55E;
+}
+
+.username{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.name{
+    size: 24px;
+}
+
+.username{
+    size: 16px;
+}
+
+.my-status{
+    display: flex;
+    flex-direction: row;
+    gap: 0px;
+}
+
+.my-status span{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    width: 116px;
+}
+
+.my-status span .status-number{
+    font-size: 20px;
+}
+
+.my-status span .status-title{
+    
+    color: #81818D;
+}
+
+.vtc-line{
+    width: 1px;
+    height: 100%;
+    border-left: 1px solid #CDCED2;
+}
+
+.friends, .chats{
+    gap: 24px;
+}
+
+.top-text{
+    display: flex;
+    justify-content: space-between;
+    width: 318px;
+}
+
+.section-title{
+    display: flex;
+    gap: 8px;
+    font-size: 20px;
+    color: #81818D;
+}
+
+.see-all{
+    
+    color: #543C52;
+}
+
+.friend-requests, .messages{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 318px;
+}
+
+.request{
+    display: flex;
+    align-items: start;
+    justify-content: left;
+    width: 100%;
+    gap: 16px;
+}
+
+.avatar-container{
+    position: relative;
+}
+
+.avatar{
+    width: 46px;
+    height: 46px;
+    border-radius: 100%;
+}
+
+.is-online, .is-offline{
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    top: 31px;
+    left: 31px;
+    border: 2.25px solid #FFFFFF;
+    border-radius: 184.5px;
+    background-color: #22C55E;
+}
+
+.is-offline{
+    background-color: #CDCED2;
+}
+
+.friend-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    gap: 4px;
+}
+
+.friend-request-followers, .friend-message{
+    font-size: 14px;
+}
+
+.friend-request-followers{
+    color: #81818D;
+}
+
+.social-media-feed{
+    top: 104px;
+    right: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 923px;
+}
+
+.create-publication{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    height: 120px;
+    padding: 16px;
+    border: 1px solid #CDCED2;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+}
+
+.thoughts{
+    width: 100%;
+}
+
+.what{
+    color: #81818D;
+}
+
+.custom{
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    gap: 10px;
+    width: 100%;
+}
+
+.add-image, .add-emoji{
+    display: flex;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #543C52;
+    border-radius: 100%;
+}
+
+.publish{
+    display: flex;
+    gap: 8px;
+    width: 130px;
+    height: 40px;
+    border-radius: 1234px;
+    background-color: #543C52;
+}
+
+.publish p{
+    color: #FFFFFF;
+}
+
+.feed{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.post{
+    width: 100%;
+    height: fit-content;
+    border: 1px solid #CDCED2;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+}
+
+.creator{
+    display: flex;
+    align-items: start;
+    gap: 50px;
+    padding: 20px;
+    height: 89px;
+    border-bottom: 1px solid #CDCED2;
+}
+
+.creator-info{
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+}
+
+.main-info{
+    display: flex;
+    gap: 10px;
+}
+
+.signature{
+    height: 50px;
+}
+
+.post-content{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 20px;
+}
+
+.post-text{
+    width: 100%;
+}
+
+.post-tags{
+    color: #543C52;
+}
+
+.post-images{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.img-in-row{
+    display: flex;
+    gap: 16px;
+}
+
+.two-in-row-img{
+    width: 433.5px;
+    height: 327px;
+    border-radius: 16px;    
+}
+
+.three-in-row-img{
+    width: 284px;
+    height: 327px;
+    border-radius: 16px;   
+}
+
+.aktives{
+    display: flex;
+    justify-content: left;
+    width: 100%;
+    height: fit-content;
+    gap: 24px;
+}
+
+.likes, .views{
+    display: flex;
+    gap: 8px;
+    width: fit-content;
+}
+
+
+
+@media (max-height: 900px){
+    body{
+        overflow-y: scroll;
+    }
+    .my-info{
+        position: absolute;
+    }
+    .social-media-feed{
+        position: absolute;
+    }
+}
+
+@media (min-height: 900px){
+    .my-info{
+        position: fixed;
+    }
+    .social-media-feed{
+        position: fixed;
+    }
+}
+
+@media (max-width: 1635px){
+    .my-info{
+        left: 130px;
+        /* background-color: blue; */
+    }
+    .social-media-feed{
+        right: 130px;
+    }
+}
+
+@media (max-width: 1535px){
+    .my-info{
+        left: 80px;
+        /* background-color: green; */
+    }
+    .social-media-feed{
+        right: 80px;
+    }
+}
+
+@media (max-width: 1435px){
+    .my-info{
+        /* background-color: red; */
+        left: 30px;
+    }
+    .social-media-feed{
+        right: 30px;
+    }
+}
+
+@media (max-width: 1335px){
+    .my-info{
+        left: 10px;
+        /* background-color: aquamarine; */
+    }
+    .social-media-feed{
+        right: 10px;
+    }
+}
+
+@media (max-width: 1300px){
+    body{
+        display: flex;
+        flex-wrap: wrap-reverse;
+        justify-content: center;
+        align-items: start;
+        gap: 20px;
+    }
+    .my-info{
+        position: relative;
+    }
+    .social-media-feed{
+        position: relative;
+        /* background-color: yellow; */
+    }
+}
+
+@media (max-width: 1000px){
+    body{
+        display: flex;
+        flex-wrap: wrap-reverse;
+        justify-content: center;
+        align-items: start;
+        gap: 20px;
+    }
+    .img-in-row{
+        flex-wrap: wrap;
+    }
+    .my-info{
+        position: relative;
+    }
+    .social-media-feed{
+        position: relative;
+        width: 800px;
+        /* background-color: orange; */
+    }
+}
+
+@media (max-width: 850px){
+    body{
+        display: flex;
+        flex-wrap: wrap-reverse;
+        justify-content: center;
+        align-items: start;
+        gap: 20px;
+    }
+    header{
+        width: auto;
+    }
+    .my-info{
+        position: relative;
+    }
+    .social-media-feed{
+        position: relative;
+        width: 700px;
+        /* background-color: brown; */
+    }
+}
