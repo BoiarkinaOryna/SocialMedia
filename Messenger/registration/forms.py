@@ -10,6 +10,7 @@ class UserForm(forms.ModelForm):
         widgets = {
             'email': forms.TextInput(attrs = {
                 'placeholder': 'you@example.com',
+                'email': ''
                 # 'class': 
             }),
             'password': forms.TextInput(attrs = {
@@ -26,3 +27,13 @@ class AuthUserForm(forms.ModelForm):
     class Meta():
         model = Profile
         fields = ['email', 'password']
+        widgets = {
+            'email': forms.TextInput(attrs = {
+                'placeholder': 'you@example.com',
+                'email': ''
+            }),
+            'password': forms.TextInput(attrs = {
+                'placeholder': 'Введи пароль',
+                'type': 'password'
+            })
+        }

@@ -4,9 +4,8 @@ from django.contrib.auth import login
 from django.core.mail import send_mail
 from django.views.generic.edit import CreateView
 from django.http import HttpRequest
-from django.views.generic.base import TemplateView
-from django.views.generic.edit import FormView
-from django.views import View
+from django.contrib.auth.views import LogoutView
+
 
 from .forms import UserForm, AuthUserForm
 from .models import Profile
@@ -20,6 +19,7 @@ def generate_code():
     return str_code
 
 # Create your views here.
+
 class RegistrationPageView(CreateView):
     template_name = 'registration/registration.html'
     form_class = UserForm
@@ -42,7 +42,7 @@ class RegistrationPageView(CreateView):
             [f"{user_email}"],
             fail_silently=False,
         )
-        return redirect("/registration")
+        return redirect("/registration/validation")
 
 def validation_view(request: HttpRequest):
     if request.method == "POST":
@@ -55,13 +55,15 @@ def validation_view(request: HttpRequest):
                 email=data['email'],
                 password=data['password'],
             )
-            login(request = request, user = user)
             request.session.pop('confirmation_code', None)
             request.session.pop('user_data', None)
 
         
-            return redirect('/')
-    return redirect('/')
+            return redirect('/registration/authorization')
+    return render(
+        request = request,
+        template_name = 'validation/validation.html',
+    )
 
 def authorization_page(request: HttpRequest):
     form = AuthUserForm()
@@ -81,3 +83,6 @@ def authorization_page(request: HttpRequest):
         template_name = 'authorization/authorization.html',
         context = {'form': form}
     )
+
+class CustomLogoutView(LogoutView):
+    next_page = 'authorization'

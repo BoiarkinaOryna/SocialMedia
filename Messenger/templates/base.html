@@ -14,32 +14,43 @@
             <img src="{% static 'images/logo.png' %}" alt="" class="logo">
 
             <div class="header-content">
-                <div class="links">
-                    <div class="link">
-                        <img src="{% static 'images/home.png' %}" alt="">
-                        <p>Головна</p>
+                {% if request.user.is_authenticated %}
+                    <div class="links">
+                        <div class="link">
+                            <img src="{% static 'images/home.png' %}" alt="">
+                            <p>Головна</p>
+                        </div>
+                        <div class="link">
+                            <img src="{% static 'images/my_posts.png' %}" alt="">
+                            <p>Мої публікації</p>
+                        </div>
+                        <div class="link">
+                            <img src="{% static 'images/friends.png' %}" alt="">
+                            <p>Друзі</p>
+                        </div>
+                        <div class="link">
+                            <img src="{% static 'images/chats.png' %}" alt="">
+                            <p>Чати</p>
+                        </div>
+                        <div class="link">
+                            <img src="{% static 'images/settings.png' %}" alt="">
+                            <p>Налаштування</p>
+                        </div>
                     </div>
-                    <div class="link">
-                        <img src="{% static 'images/my_posts.png' %}" alt="">
-                        <p>Мої публікації</p>
-                    </div>
-                    <div class="link">
-                        <img src="{% static 'images/friends.png' %}" alt="">
-                        <p>Друзі</p>
-                    </div>
-                    <div class="link">
-                        <img src="{% static 'images/chats.png' %}" alt="">
-                        <p>Чати</p>
-                    </div>
-                    <div class="link">
-                        <img src="{% static 'images/settings.png' %}" alt="">
-                        <p>Налаштування</p>
-                    </div>
+                    <form action="{% url 'logout' %}" method="post" class="no-styles">
+                        {% csrf_token %}
+                        <button class="logout">
+                            <img src="{% static 'images/logout.png' %}" alt="" class="vector">
+                            <p>Вихід</p>
+                        </button>
+                    </form>
+                {% else %}
+                <div class="link">
+                    <a href="{% url 'registration' %}">Реєстрація</a>
+                </div><div class="link">
+                    <a href="{% url 'authorization' %}">Авторизація</a>
                 </div>
-                <button class="logout">
-                    <img src="{% static 'images/logout.png' %}" alt="" class="vector">
-                    <p>Вихід</p>
-                </button>
+                {% endif %}
             </div>
         </header>
         {% block content %}

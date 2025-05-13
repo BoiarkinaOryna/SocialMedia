@@ -10,10 +10,18 @@
 {% endblock %}
 
 {% block content %}
+    <img class = 'background-img' src="{% static 'images/Midnight.png' %}" alt="">
     <form action="" method="post">
+        <div class="title">
+            <h1 class = 'is-passive reg'>Реєстрація</h1>
+            <h1 class = 'is-active auth'>Авторизація</h1>
+        </div>
+        <div class="title">
+           
+        </div> <h2>Приєднуйся до World It</h2>
         {% csrf_token %}
         {{ form }}
-        <button type="submit">Авторизуватися</button>
+        <button class='create' type="submit">Авторизуватися</button>
     </form>
 {% endblock %}
 

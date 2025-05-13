@@ -1,47 +1,85 @@
 form{
     background-color: white;
     position: fixed;
-    position: fixed;
     width: 487px;
     height: 552px;
     top: 200px;
     left: 250px;
     flex-direction: column;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     border-radius: 50px;
+    padding: 44px;
+    /* gap: 36px; */
 }
+.no-styles{
+    position: static;
+    width: fit-content;
+    height: fit-content;
+    padding: 0;
+}
+.background-img{
+    position: relative;
+    top: 248.45px;
+    left: 657.68px;
+    width: 679.3px;
+    height: 527.1;
+}
+.title{
+    display: flex;
+    gap: 16px;
+}
+.reg, .auth{
+    color: #070A1C;
+    position: relative;
+    size: 34px;
+    /* bottom: 53px;
+    right: 110px; */
+    font-weight: 700;
+}
+.title h2 {
+    width: 259px;
+    height: 27px;
+    font-family: 'GT Walsheim Pro', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: -1%;
+    text-align: center;
+}
+/* .auth{
+    position: relative;
+    size: 34px;
+    bottom: 270px;
+    left: 200px;
+    font-weight: 700;
+} */
 input{
     position: relative;
     background-color: white;
-    bottom: 90px;
+    padding: 10px 16px;
+    top: 20px;
     width: 399px;
     height: 42px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     border-radius: 10px;
-}
-.inputs{
-    position: relative;
-    /* bottom: 90px; */
+    border: 1px solid #CDCED2;
 }
 .create{
+    font-size: 16px;
     width: 399px;
     height: 52px;
-    font-size: 16px;
-    border-radius: 20px;
+    border-radius: 1234px;
     background-color: #543C52;
     color: white;
-    position: fixed;
-    top: 600px;
+    border: none;
+    /* position: fixed; */
+    /* top: 600px; */
 }
-
-.modal-window{
-    position: relative;
-    display: fixed;
-    left: 500px;
+.is-active{
+    border-bottom: 2px solid #543C52;
 }
-
-.modal-form{
-    position: absolute;
+.is-passive{
+    color: grey;
 }

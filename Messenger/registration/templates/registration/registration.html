@@ -10,22 +10,23 @@
 {% endblock %}
 
 {% block content %}
+    <img class = 'background-img' src="{% static 'images/Midnight.png' %}" alt="">
     <form action="" method="post">
+        <div class="title">
+            <h1 class = 'is-active reg'>Реєстрація</h1>
+            <h1 class = 'is-passive auth'>Авторизація</h1>
+        </div>
+        <div class="title">
+            <h2>Приєднуйся до World It</h2>
+        </div>
         {% csrf_token %}
         {{ form }}
-        <div class = 'inputs'>
+        <div>
             <label for="">Підтверди пароль</label>
-            <input type="password" name="password_confirmation">
+            <input placeholder="Повтори пароль" type="password" name="password_confirmation">
         </div>
-        <button class = 'create' type="submit">Створити акаунт</button>
+        <button class='create' type="submit">Створити акаунт</button>
     </form>
-    <div class="modal-window">
-        <form class="modal-form" action="{% url 'validation' %}" method="post">
-            {% csrf_token %}
-            <input name="code" type="number">
-            <button>Підтвердити код</button>
-        </form>
-    </div>
 {% endblock %}
 
 {% block scripts %}
