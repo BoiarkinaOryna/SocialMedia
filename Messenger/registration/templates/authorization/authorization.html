@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block content %}
-    <img class = 'background-img' src="{% static 'images/Midnight.png' %}" alt="">
+    <img class = 'background-img' src="{% static 'images/Background.png' %}" alt="">
     <form action="" method="post">
         <div class="title">
             <h1 class = 'is-passive reg'>Реєстрація</h1>
@@ -18,9 +18,19 @@
         </div>
         <div class="title">
            
-        </div> <h2>Приєднуйся до World It</h2>
+        </div>
+        <div class="title">
+            <h2>Приєднуйся до World It</h2>
+        </div>
         {% csrf_token %}
         {{ form }}
+        
+        {% if existance_error %}
+            <p style="color: #F43F5E;">Користувача не існує</p>
+        {% endif %}
+        {% if password_error %}
+            <p style="color: #F43F5E;">Пароль введено неправильно</p>
+        {% endif %}
         <button class='create' type="submit">Авторизуватися</button>
     </form>
 {% endblock %}

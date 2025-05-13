@@ -4,6 +4,13 @@ from .models import Profile
 
 # Треба було використовувати ModelForm, а не просто Form
 class UserForm(forms.ModelForm):
+    password_confirmation = forms.CharField(
+        required = True,
+        label = "Підтверди пароль",
+        widget = forms.TextInput(
+            attrs = {"placeholder": "Повтори пароль", "type": "password"}
+        )
+    )
     class Meta():
         model = Profile
         fields = ['email', 'password']

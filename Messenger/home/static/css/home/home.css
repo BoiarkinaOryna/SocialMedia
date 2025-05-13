@@ -12,7 +12,6 @@
     flex-direction: column;
     width: 350px;
     padding: 16px;
-    /* flex: 1 1 auto;    height: 249px; */
     border: 1px solid #CDCED2;
     border-radius: 10px;
     background-color: #FFFFFF;
@@ -342,7 +341,6 @@
 @media (max-width: 1635px){
     .my-info{
         left: 130px;
-        /* background-color: blue; */
     }
     .social-media-feed{
         right: 130px;
@@ -352,7 +350,6 @@
 @media (max-width: 1535px){
     .my-info{
         left: 80px;
-        /* background-color: green; */
     }
     .social-media-feed{
         right: 80px;
@@ -361,7 +358,6 @@
 
 @media (max-width: 1435px){
     .my-info{
-        /* background-color: red; */
         left: 30px;
     }
     .social-media-feed{
@@ -372,7 +368,6 @@
 @media (max-width: 1335px){
     .my-info{
         left: 10px;
-        /* background-color: aquamarine; */
     }
     .social-media-feed{
         right: 10px;
@@ -382,24 +377,21 @@
 @media (max-width: 1300px){
     body{
         display: flex;
-        flex-wrap: wrap-reverse;
         justify-content: center;
         align-items: start;
         gap: 20px;
     }
     .my-info{
-        position: relative;
+        display: none;
     }
     .social-media-feed{
         position: relative;
-        /* background-color: yellow; */
     }
 }
 
 @media (max-width: 1000px){
     body{
         display: flex;
-        flex-wrap: wrap-reverse;
         justify-content: center;
         align-items: start;
         gap: 20px;
@@ -408,19 +400,17 @@
         flex-wrap: wrap;
     }
     .my-info{
-        position: relative;
+        display: none;
     }
     .social-media-feed{
         position: relative;
         width: 800px;
-        /* background-color: orange; */
     }
 }
 
 @media (max-width: 850px){
     body{
         display: flex;
-        flex-wrap: wrap-reverse;
         justify-content: center;
         align-items: start;
         gap: 20px;
@@ -429,11 +419,10 @@
         width: auto;
     }
     .my-info{
-        position: relative;
+        display: none;
     }
     .social-media-feed{
         position: relative;
         width: 700px;
-        /* background-color: brown; */
     }
 }

@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block content %}
-    <img class = 'background-img' src="{% static 'images/Midnight.png' %}" alt="">
+    <img class = 'background-img' src="{% static 'images/Background.png' %}" alt="">
     <form action="" method="post">
         <div class="title">
             <h1 class = 'is-active reg'>Реєстрація</h1>
@@ -21,10 +21,6 @@
         </div>
         {% csrf_token %}
         {{ form }}
-        <div>
-            <label for="">Підтверди пароль</label>
-            <input placeholder="Повтори пароль" type="password" name="password_confirmation">
-        </div>
         <button class='create' type="submit">Створити акаунт</button>
     </form>
 {% endblock %}

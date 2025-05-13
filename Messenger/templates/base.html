@@ -11,8 +11,10 @@
     </head>
     <body>
         <header>
-            <img src="{% static 'images/logo.png' %}" alt="" class="logo">
-
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/logo.png' %}" alt="" class="logo">
+            </a>
+        
             <div class="header-content">
                 {% if request.user.is_authenticated %}
                     <div class="links">
