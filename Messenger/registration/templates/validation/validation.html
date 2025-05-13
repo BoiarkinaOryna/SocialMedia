@@ -11,7 +11,8 @@
 {% endblock %}
 
 {% block content %}
-    <div class="modal-window">
+    <img class = 'background-img' src="{% static 'images/Background.png' %}" alt="">
+    <!-- <div class="modal-window"> -->
         <form class="modal-form" action="" method="post">
             {% csrf_token %}
             <div class="title">
@@ -24,5 +25,5 @@
             <input name="code" type="number">
             <button class='create'>Підтвердити код</button>
         </form>
-    </div>
+    <!-- </div> -->
 {% endblock %}
