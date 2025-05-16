@@ -7,9 +7,24 @@
 
 {% block links %}
     <link rel="stylesheet" href="{% static 'css/home/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home/form.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home/mypost.css' %}">
 {% endblock %}
 
 {% block content %}
+
+    <form class="post-form" method="post">
+        <h1 class = 'creation'>Створення публікації</h1>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class = 'post-p' type="submit">
+            <h1 с>Публікація</h1>
+                <div class="publish-f">
+                    <img class = 'send-p' src="{% static 'images/send.png' %}" alt="">  
+                </div>
+        </button>
+    </form>
+
     <div class="my-info">
         <div class="about-me">
             <div class="me">
@@ -122,8 +137,48 @@
             </div>
         </div>
 
+        
         <div class="feed">
+        
+            {% for post in object_list %}
             <div class="post">
+                <div class="creator">
+                    <div class="creator-info">
+                        <div class="main-info">
+                            <div class="avatar-container">
+                                <img class="avatar" src="{% static 'images/avatar2.jpg' %}" alt="">
+                                <div class="is-offline"></div>
+                            </div>
+                            <p class="creator-name">{{ post.author }}</p>
+                        </div>
+                    </div>
+                    <img src="{% static 'images/dots.png' %}" alt="" class="dots">
+                </div>
+                <div class="post-content">
+                    <div class="post-text">
+                        <p class="title">{{ post.title }}</p>
+                        <p>
+                            {{ post.content }}
+                        </p>
+                        <p class="post-tags">
+                            {{ post.tags }}
+                        </p>
+                    </div>
+                    <div class="aktives">
+                        <div class="likes">
+                            <img src="{% static 'images/likes.png' %}" alt="">
+                            <p>{{ post.likes }} Вподобань</p>
+                        </div>
+                        <div class="views">
+                            <img src="{% static 'images/views.png' %}" alt="">
+                            <p>{{ post.views }} Переглядів</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        
+            <!-- <div class="post">
                 <div class="creator">
                     <div class="creator-info">
                         <div class="main-info">
@@ -169,43 +224,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="post">
-                <div class="creator">
-                    <div class="creator-info">
-                        <div class="main-info">
-                            <div class="avatar-container">
-                                <img class="avatar" src="{% static 'images/avatar2.jpg' %}" alt="">
-                                <div class="is-offline"></div>
-                            </div>
-                            <p class="creator-name">Alex_03</p>
-                        </div>
-                    </div>
-                    <img src="{% static 'images/dots.png' %}" alt="" class="dots">
-                </div>
-                <div class="post-content">
-                    <div class="post-text">
-                        <p>
-                            буває такий настрій: просто лежиш і існуєш 😅 <br>
-                            чай в одній руці, телефон в іншій, думки десь у космосі 🌌 і знаєте шо? норм
-                        </p>
-                        <p class="post-tags">
-                            #вайб
-                        </p>
-                    </div>
-                    <div class="aktives">
-                        <div class="likes">
-                            <img src="{% static 'images/likes.png' %}" alt="">
-                            <p>120 Вподобань</p>
-                        </div>
-                        <div class="views">
-                            <img src="{% static 'images/views.png' %}" alt="">
-                            <p>890 Переглядів</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </div> -->
         </div>
     </div>
 

@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load post_forms %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/home/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home/form.css' %}">
+{% endblock %}
+
+{% block content %}
+    {% form_for_post context %}
+    <!-- <form class="post-form" method="post">
+        <h1 class = 'creation'>Створення публікації</h1>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Опублікувати</button>
+    </form> -->
+
+    <div class="my-info">
+        <div class="about-me">
+            <div class="me">
+                <img class="my-avatar" src="{% static 'images/default-avatar.jpg' %}" alt="">
+                <div class="I-am-online"></div>
+                <span class="username">
+                    <p class="name">Lina Li</p>
+                    <p class="username">@thelili</p>
+                </span>
+            </div>
+            <div class="my-status">
+                <span>
+                    <p class="status-number">566</p>
+                    <p class="status-title">Дописи</p>
+                </span>
+                <div class="vtc-line"></div>
+                <span>
+                    <p class="status-number">12.1K</p>
+                    <p class="status-title">Читачі</p>
+                </span>
+                <div class="vtc-line"></div>
+                <span>
+                    <p class="status-number">222</p>
+                    <p class="status-title">Друзі</p>
+                </span>
+            </div>
+        </div>
+    </div>   
+    <div class="social-media-feed"> 
+        <div class="feed">
+        
+            {% for post in object_list %}
+            <div class="post">
+                <div class="creator">
+                    <div class="creator-info">
+                        <div class="main-info">
+                            <div class="avatar-container">
+                                <img class="avatar" src="{% static 'images/avatar2.jpg' %}" alt="">
+                                <div class="is-offline"></div>
+                            </div>
+                            <p class="creator-name">{{ post.author }}</p>
+                        </div>
+                    </div>
+                    <div class="post-options" style="position: relative;">
+                        <img src="{% static 'images/dots.png' %}" alt="Menu" class="dots"
+                             onclick="toggleMenu('{{ post.id }}')" 
+                             style="width:24px; height:24px; cursor:pointer; display:inline-block;">
+                        <div id="menu-{{ post.id }}" class="dropdown-menu" 
+                             style="display:none; position:absolute; background:#fff; border:1px solid #ccc; padding:5px;">
+                            <form method="post" action="">
+                                {% csrf_token %}
+                                <input type="hidden" name="delete_post" value="{{ post.id }}">
+                                <button type="submit">Видалити</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <div class="post-text">
+                        <p class="title">{{ post.title }}</p>
+                        <p>
+                            {{ post.content }}
+                        </p>
+                        <p class="post-tags">
+                            {{ post.tags }}
+                        </p>
+                    </div>
+                    <div class="aktives">
+                        <div class="likes">
+                            <img src="{% static 'images/likes.png' %}" alt="">
+                            <p>{{ post.likes }} Вподобань</p>
+                        </div>
+                        <div class="views">
+                            <img src="{% static 'images/views.png' %}" alt="">
+                            <p>{{ post.views }} Переглядів</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/my_posts.js' %}" defer></script>
+{% endblock %}

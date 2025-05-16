@@ -1,0 +1,68 @@
+.post-form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+    margin: auto;
+    position: absolute;
+    width: 773px;
+    height: 587px;
+    top: 200px;
+    left: 500px;
+    background-color: white;
+    border: 1px solid #81818D;
+    border-radius: 20px;
+    z-index: 3;
+}
+.send-p{
+    position:relative;
+    left: 100px;
+}
+.creation{
+    width: 685px;
+    height: 39px;
+    position: relative;
+    top: 30px;
+    left: 20px;
+    padding: 10px;
+}
+.post-form p{
+    position: relative;
+    flex-direction: column;
+    right: 250px;
+    top: 20px;
+    width: 121px;
+    height: 18px;
+    margin: 24px;
+    font: GT Walsheim Pro;
+    size: 16px;
+
+}
+
+.post-form p textarea{
+    width: 685px;
+    height: 126px;
+    border-radius: 10px;
+}
+
+.post-form p input{
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #81818D;
+    width: 343px;
+    height: 42px;
+}
+.post-p{
+    background-color: #543C52; 
+    border-radius: 20px;
+    border: 1px solid #543C52;
+    color: white;
+    width: 130px;
+    height: 40px;
+    position: relative;
+    left: 270px;
+    bottom: 10px;
+}  

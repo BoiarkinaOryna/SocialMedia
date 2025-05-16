@@ -22,5 +22,5 @@ from home.views import HomePageView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('registration/', include('registration.urls')),
-    path('', view = HomePageView.as_view(), name = 'home')
+    path('', include('home.urls')),
 ]
