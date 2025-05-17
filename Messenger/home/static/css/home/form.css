@@ -7,8 +7,8 @@
     position: absolute;
     width: 773px;
     height: 587px;
-    top: 200px;
-    left: 500px;
+    /* top: 200px;
+    left: 500px; */
     background-color: white;
     border: 1px solid #81818D;
     border-radius: 20px;
@@ -38,7 +38,6 @@
     size: 16px;
 
 }
-
 .post-form p textarea{
     width: 685px;
     height: 126px;

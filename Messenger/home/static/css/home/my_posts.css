@@ -1,0 +1,24 @@
+.post-options{
+    position: relative;
+}
+
+.hidden-form{
+    display: none;
+}
+
+.visible-form{
+    position: absolute;
+    top: 30px;
+    display: flex;
+
+}
+
+.visible-form button{
+    width: 100px;
+    height: 30px;
+    border: 1px solid #CDCED2;
+    border-radius: 5px;
+    background-color: #FAF8FF;
+    color: #F43F5E;
+    font-size: 20px;
+}

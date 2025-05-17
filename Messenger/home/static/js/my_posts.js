@@ -1,29 +1,15 @@
-console.log("myposts.js loaded");
+const optionDivsList = document.querySelectorAll(".post-options");
 
-function toggleMenu(postId) {
-    const menu = document.getElementById(`menu-${postId}`);
-    const allMenus = document.querySelectorAll('.dropdown-menu');
-
-    allMenus.forEach(m => {
-        if (m !== menu) {
-            m.style.display = "none";
+for (let optionDiv of optionDivsList){
+    optionDiv.addEventListener("click", ()=> {
+        let id = optionDiv.id;
+        let form = document.getElementById(`form-${id}`);
+        if (form.classList == "hidden-form"){
+            form.classList.remove("hidden-form");
+            form.classList.add("visible-form");
+        }else if (form.classList == "visible-form"){
+            form.classList.add("hidden-form");
+            form.classList.remove("visible-form");
         }
-    });
-
-    const currentDisplay = window.getComputedStyle(menu).display;
-    menu.style.display = (currentDisplay === "none") ? "block" : "none";
+    })
 }
-
-window.addEventListener("click", function(e) {
-    if (!e.target.closest(".dots")) {
-        document.querySelectorAll(".dropdown-menu").forEach(menu => {
-            menu.style.display = "none";
-        });
-    }
-});
-
-document.querySelectorAll(".dropdown-menu").forEach(menu => {
-    menu.addEventListener("click", function(e) {
-        e.stopPropagation();
-    });
-});

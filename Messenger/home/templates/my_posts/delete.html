@@ -1,52 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
-{% load post_forms %}
 
 {% block title %}
-    My Posts
+    Delete Post
 {% endblock %}
 
 {% block links %}
     <link rel="stylesheet" href="{% static 'css/home/home.css' %}">
-    <link rel="stylesheet" href="{% static 'css/home/form.css' %}">
-    <link rel="stylesheet" href="{% static 'css/home/my_posts.css' %}">
 {% endblock %}
 
 {% block content %}
-    <!-- {% form_for_post %} -->
-
-    <div class="my-info">
-        <div class="about-me">
-            <div class="me">
-                <img class="my-avatar" src="{% static 'images/default-avatar.jpg' %}" alt="">
-                <div class="I-am-online"></div>
-                <span class="username">
-                    <p class="name">Lina Li</p>
-                    <p class="username">@thelili</p>
-                </span>
-            </div>
-            <div class="my-status">
-                <span>
-                    <p class="status-number">566</p>
-                    <p class="status-title">Дописи</p>
-                </span>
-                <div class="vtc-line"></div>
-                <span>
-                    <p class="status-number">12.1K</p>
-                    <p class="status-title">Читачі</p>
-                </span>
-                <div class="vtc-line"></div>
-                <span>
-                    <p class="status-number">222</p>
-                    <p class="status-title">Друзі</p>
-                </span>
-            </div>
-        </div>
-    </div>   
     <div class="social-media-feed"> 
         <div class="feed">
-        
-            {% for post in object_list %}
             <div class="post">
                 <div class="creator">
                     <div class="creator-info">
@@ -61,7 +26,7 @@
                     <div class="post-options" id="{{ post.id }}">
                         <img src="{% static 'images/dots.png' %}" alt="Menu" class="dots">
                         <div id="menu-{{ post.id }}" class="dropdown-menu">
-                            <form class="hidden-form" id="form-{{ post.id }}" method="post" action="{% url 'delete' post.id %}">
+                            <form class="hidden-form" id="form-{{ post.id }}" method="post" action="">
                                 {% csrf_token %}
                                 <input type="hidden" name="delete_post" value="{{ post.id }}">
                                 <button type="submit">Видалити</button>
@@ -91,11 +56,7 @@
                     </div>
                 </div>
             </div>
-        {% endfor %}
+        </div>
     </div>
 
-{% endblock %}
-
-{% block scripts %}
-    <script src="{% static 'js/my_posts.js' %}" defer></script>
 {% endblock %}

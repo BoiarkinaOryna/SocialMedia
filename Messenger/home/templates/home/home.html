@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load post_forms %}
 
 {% block title %}
     Home
@@ -8,22 +9,11 @@
 {% block links %}
     <link rel="stylesheet" href="{% static 'css/home/home.css' %}">
     <link rel="stylesheet" href="{% static 'css/home/form.css' %}">
-    <link rel="stylesheet" href="{% static 'css/home/mypost.css' %}">
 {% endblock %}
 
 {% block content %}
 
-    <form class="post-form" method="post">
-        <h1 class = 'creation'>Створення публікації</h1>
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button class = 'post-p' type="submit">
-            <h1 с>Публікація</h1>
-                <div class="publish-f">
-                    <img class = 'send-p' src="{% static 'images/send.png' %}" alt="">  
-                </div>
-        </button>
-    </form>
+    {% form_for_post %}
 
     <div class="my-info">
         <div class="about-me">

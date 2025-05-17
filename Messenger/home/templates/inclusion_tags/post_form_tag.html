@@ -1,6 +1,26 @@
+{% load static %}
+
 <form class="post-form" method="post">
-    <h1 class = 'creation'>Створення публікації</h1>
+    {% if condition %}
+        <h1 class = 'creation'>Створення публікації</h1>
+    {% else %}
+        <h1 class = 'creation'>Редагування публікації</h1>
+    {% endif %}
     {% csrf_token %}
-    <!-- {{ form.as_p }} -->
-    <button type="submit">Опублікувати</button>
-</form> 
+    {{ form.as_p }}
+    {% if form_name == 'create_post' %}
+        <button class = 'post-p' type="submit">
+            <h1 с>Публікація</h1>
+                <div class="publish-f">
+                    <img class = 'send-p' src="{% static 'images/send.png' %}" alt="">  
+                </div>
+        </button>
+    {% else %}
+        <button class = 'post-p' type="submit">
+            <h1 с>Редагування</h1>
+                <div class="publish-f">
+                    <img class = 'send-p' src="{% static 'images/send.png' %}" alt="">  
+                </div>
+        </button>
+    {% endif %}
+</form>
