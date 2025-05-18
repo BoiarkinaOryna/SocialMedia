@@ -43,6 +43,10 @@ class MyPostsView(FormMixin, ListView):
     form_class = ChangeUserPostForm
     template_name = "my_posts/my_posts.html"
     
+    def get(self, request, *args, **kwargs):
+        self.queryset = User_Post.objects.filter(author = self.request.user.id)
+        return super().get(request, *args, **kwargs)
+
     def post(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
             return HttpResponseForbidden()

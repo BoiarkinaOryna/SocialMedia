@@ -13,7 +13,7 @@
 {% endblock %}
 
 {% block content %}
-    <!-- {% form_for_post %} -->
+    {% form_for_post %}
 
     <div class="my-info">
         <div class="about-me">
@@ -44,6 +44,23 @@
         </div>
     </div>   
     <div class="social-media-feed"> 
+        <div class="create-publication">
+            <span class="thoughts">
+                <p class="what">Про що ти зараз думаєш?</p>
+            </span>
+            <div class="custom">
+                <div class="add-image">
+                    <img src="{% static 'images/add-image.png' %}" alt="">
+                </div>
+                <div class="add-emoji">
+                    <img src="{% static 'images/add-emoji.png' %}" alt="">
+                </div>
+                <div id="createPublication" class="publish">
+                    <p>Публікація</p>
+                    <img src="{% static 'images/send.png' %}" alt="">
+                </div>
+            </div>
+        </div>
         <div class="feed">
         
             {% for post in object_list %}
@@ -98,4 +115,5 @@
 
 {% block scripts %}
     <script src="{% static 'js/my_posts.js' %}" defer></script>
+    <script src="{% static 'js/showForm.js' %}" defer></script>
 {% endblock %}

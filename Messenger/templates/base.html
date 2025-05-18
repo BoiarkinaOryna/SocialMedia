@@ -19,23 +19,23 @@
                 {% if request.user.is_authenticated %}
                     <div class="links">
                         <div class="link">
-                            <img src="{% static 'images/home.png' %}" alt="">
+                            <img src="{% static 'images/home.png' %}" alt="" class="header-image">
                             <a href="/">Головна</a>
                         </div>
                         <div class="link">
-                            <img src="{% static 'images/my_posts.png' %}" alt="">
+                            <img src="{% static 'images/my_posts.png' %}" alt="" class="header-image">
                             <a href="/my_posts">Мої публікації</a>
                         </div>
                         <div class="link">
-                            <img src="{% static 'images/friends.png' %}" alt="">
+                            <img src="{% static 'images/friends.png' %}" alt="" class="header-image">
                             <p>Друзі</p>
                         </div>
                         <div class="link">
-                            <img src="{% static 'images/chats.png' %}" alt="">
+                            <img src="{% static 'images/chats.png' %}" alt="" class="header-image">
                             <p>Чати</p>
                         </div>
                         <div class="link">
-                            <img src="{% static 'images/settings.png' %}" alt="">
+                            <img src="{% static 'images/settings.png' %}" alt="" class="header-image">
                             <p>Налаштування</p>
                         </div>
                     </div>
@@ -46,18 +46,14 @@
                             <p>Вихід</p>
                         </button>
                     </form>
-                {% else %}
-                <div class="link">
-                    <a href="{% url 'registration' %}">Реєстрація</a>
-                </div><div class="link">
-                    <a href="{% url 'authorization' %}">Авторизація</a>
-                </div>
                 {% endif %}
             </div>
         </header>
-        {% block content %}
+        <main>
+            {% block content %}
             
-        {% endblock %}
+            {% endblock %}
+        </main>
         
         {% block scripts %}    
         {% endblock %}

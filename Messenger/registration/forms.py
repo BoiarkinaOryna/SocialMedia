@@ -18,7 +18,6 @@ class UserForm(forms.ModelForm):
             'email': forms.TextInput(attrs = {
                 'placeholder': 'you@example.com',
                 'email': ''
-                # 'class': 
             }),
             'password': forms.TextInput(attrs = {
                 'placeholder': 'Введи пароль',
@@ -43,4 +42,8 @@ class AuthUserForm(forms.ModelForm):
                 'placeholder': 'Введи пароль',
                 'type': 'password'
             })
+        }
+        labels = {
+            'email': 'Електронна пошта',
+            'password': 'Пароль'
         }

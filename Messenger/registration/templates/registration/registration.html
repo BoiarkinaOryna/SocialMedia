@@ -12,14 +12,14 @@
 {% block content %}
     <img class = 'background-img' src="{% static 'images/Background.png' %}" alt="">
     <form action="" method="post">
+        {% csrf_token %}
         <div class="title">
             <h1 class = 'is-active reg'>Реєстрація</h1>
-            <h1 class = 'is-passive auth'>Авторизація</h1>
+            <a href="/registration/authorization" class = 'is-passive auth'>Авторизація</a>
         </div>
         <div class="title">
             <h2>Приєднуйся до World It</h2>
         </div>
-        {% csrf_token %}
         {{ form }}
         <button class='create' type="submit">Створити акаунт</button>
     </form>

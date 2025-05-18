@@ -1,84 +1,79 @@
 .my-info{
-    top: 104px;
-    left: 150px;
+    position: relative;
+    top: 5vh;
+    left: 5vw;
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    border-radius: 10px;
+    gap: 1vh;
+    border-radius: 5vh;
 }
 
 .about-me, .friends, .chats{
     display: flex;
     flex-direction: column;
-    width: 350px;
-    padding: 16px;
+    width: 20vw;
+    height: 27vh;
+    padding: 2vw;
     border: 1px solid #CDCED2;
-    border-radius: 10px;
+    border-radius: 1vh;
     background-color: #FFFFFF;
 }
 
-.about-me{
+/* .about-me{
     padding: 16px 0px;
     gap: 16px;
-}
+} */
 
 .me{
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 2vh;
 }
 
 .my-avatar{
-    width: 96px;
-    height: 96px;
-    border-radius: 100%;
+    width: 5vw;
+    height: 5vw;
+    border-radius: 1234px;
 }
 
 .I-am-online{
     position: absolute;
-    width: 18px;
-    height: 18px;
-    top: 70px;
-    left: 70px;
-    border: 2.25px solid #FFFFFF;
-    border-radius: 184.5px;
+    width: 2vh;
+    height: 2vh;
+    top: 6.5vh;
+    left: 4vw;
+    border: 1px solid #FFFFFF;
+    border-radius: 1234px;
     background-color: #22C55E;
 }
 
 .username{
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 1vh;
 }
 
 .name{
-    size: 24px;
-}
-
-.username{
-    size: 16px;
+    size: 10vh;
 }
 
 .my-status{
     display: flex;
     flex-direction: row;
-    gap: 0px;
 }
 
 .my-status span{
     display: flex;
     flex-direction: column;
-    gap: 7px;
-    width: 116px;
+    width: 7vw;
 }
 
 .my-status span .status-number{
-    font-size: 20px;
+    font-size: 3vh;
 }
 
 .my-status span .status-title{
-    
     color: #81818D;
 }
 
@@ -89,32 +84,31 @@
 }
 
 .friends, .chats{
-    gap: 24px;
+    gap: 1vh;
 }
 
 .top-text{
     display: flex;
     justify-content: space-between;
-    width: 318px;
+    width: 17vw;
 }
 
 .section-title{
     display: flex;
-    gap: 8px;
-    font-size: 20px;
+    /* gap: 2vh; */
+    font-size: 2vh;
     color: #81818D;
 }
 
 .see-all{
-    
     color: #543C52;
 }
 
 .friend-requests, .messages{
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    width: 318px;
+    gap: 1vh;
+    width: 17vw;
 }
 
 .request{
@@ -122,7 +116,7 @@
     align-items: start;
     justify-content: left;
     width: 100%;
-    gap: 16px;
+    gap: 1vw;
 }
 
 .avatar-container{
@@ -130,19 +124,19 @@
 }
 
 .avatar{
-    width: 46px;
-    height: 46px;
+    width: 3vw;
+    height: 3vw;
     border-radius: 100%;
 }
 
 .is-online, .is-offline{
     position: absolute;
-    width: 12px;
-    height: 12px;
-    top: 31px;
-    left: 31px;
-    border: 2.25px solid #FFFFFF;
-    border-radius: 184.5px;
+    width: 1.5vh;
+    height: 1.5vh;
+    top: 4.3vh;
+    left: 2.3vw;
+    border: 2px solid #FFFFFF;
+    border-radius: 1234px;
     background-color: #22C55E;
 }
 
@@ -154,11 +148,11 @@
     display: flex;
     flex-direction: column;
     justify-content: left;
-    gap: 4px;
+    gap: 0.5vh;
 }
 
 .friend-request-followers, .friend-message{
-    font-size: 14px;
+    font-size: 2vh;
 }
 
 .friend-request-followers{
@@ -317,7 +311,7 @@
 
 
 
-@media (max-height: 900px){
+/* @media (max-height: 900px){
     body{
         overflow-y: scroll;
     }
@@ -358,10 +352,10 @@
 
 @media (max-width: 1435px){
     .my-info{
-        left: 30px;
+        left: 20px;
     }
     .social-media-feed{
-        right: 30px;
+        right: 20px;
     }
 }
 
@@ -425,4 +419,4 @@
         position: relative;
         width: 700px;
     }
-}
+} */

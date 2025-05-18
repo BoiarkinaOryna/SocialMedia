@@ -120,7 +120,7 @@
                 <div class="add-emoji">
                     <img src="{% static 'images/add-emoji.png' %}" alt="">
                 </div>
-                <div class="publish">
+                <div id="createPublication" class="publish">
                     <p>Публікація</p>
                     <img src="{% static 'images/send.png' %}" alt="">
                 </div>
@@ -167,59 +167,11 @@
                 </div>
             </div>
         {% endfor %}
-        
-            <!-- <div class="post">
-                <div class="creator">
-                    <div class="creator-info">
-                        <div class="main-info">
-                            <div class="avatar-container">
-                                <img class="avatar" src="{% static 'images/avatar1.jpg' %}" alt="">
-                                <div class="is-online"></div>
-                            </div>
-                            <p class="creator-name">X_AE_A-13</p>
-                        </div>
-                        <img class="signature" src="{% static 'images/signature.png' %}" alt="">
-                    </div>
-                    <img src="{% static 'images/dots.png' %}" alt="" class="dots">
-                </div>
-                <div class="post-content">
-                    <div class="post-text">
-                        <p>
-                            Інколи найкращі ідеї народжуються в тиші 🌿<br>
-                            Природа, книга і спокій — усе, що потрібно, аби перезавантажитись.
-                        </p>
-                        <p class="post-tags">
-                            #відпочинок #натхнення #життя #природа #читання #спокій #гармонія
-                        </p>
-                    </div>
-                    <div class="post-images">
-                        <div class="img-in-row">
-                            <img class="two-in-row-img" src="{% static 'images/post1.jpg' %}" alt="">
-                            <img class="two-in-row-img" src="{% static 'images/post2.jpg' %}" alt="">
-                        </div>
-                        <div class="img-in-row">
-                            <img class="three-in-row-img" src="{% static 'images/post3.jpg' %}" alt="">
-                            <img class="three-in-row-img" src="{% static 'images/post4.jpg' %}" alt="">
-                            <img class="three-in-row-img" src="{% static 'images/post5.jpg' %}" alt="">
-                        </div>
-                    </div>
-                    <div class="aktives">
-                        <div class="likes">
-                            <img src="{% static 'images/likes.png' %}" alt="">
-                            <p>120 Вподобань</p>
-                        </div>
-                        <div class="views">
-                            <img src="{% static 'images/views.png' %}" alt="">
-                            <p>890 Переглядів</p>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
         </div>
     </div>
 
 {% endblock %}
 
 {% block scripts %}
-    
+    <script src="{% static 'js/showForm.js' %}" defer></script>
 {% endblock %}

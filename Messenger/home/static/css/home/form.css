@@ -1,14 +1,25 @@
+.dark{
+    filter: brightness(30%);
+}
+
+.hidden-post-form{
+    display: none;
+}
+
+main{
+    height: 100vh;
+    display: flex;
+}
+
 .post-form{
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 30px;
+    padding: 0px;
     margin: auto;
     position: absolute;
     width: 773px;
     height: 587px;
-    /* top: 200px;
-    left: 500px; */
     background-color: white;
     border: 1px solid #81818D;
     border-radius: 20px;
@@ -16,7 +27,8 @@
 }
 .send-p{
     position:relative;
-    left: 100px;
+    left: 102px;
+    bottom: 9px;
 }
 .creation{
     width: 685px;
@@ -43,7 +55,13 @@
     height: 126px;
     border-radius: 10px;
 }
-
+.send {
+    position: relative;
+    font-size: 18px;
+    right: 6px;
+    color: white;
+    top: 9px;
+}
 .post-form p input{
     padding: 12px;
     border-radius: 10px;
@@ -58,7 +76,6 @@
     background-color: #543C52; 
     border-radius: 20px;
     border: 1px solid #543C52;
-    color: white;
     width: 130px;
     height: 40px;
     position: relative;

@@ -14,6 +14,7 @@
 
     justify-content: center;
     align-items: center;
+    font-size: 2vh;
 }
 
 body{
@@ -25,38 +26,45 @@ header{
     position: absolute;
     top: 0px;
     display: flex;
-    width: 100%;
-    height: 88px;
+    width: 100vw;
+    height: 10vh;
     justify-content: space-between;
-    padding: 0px 80px;
-    margin-bottom: 20px;
+    padding: 0px 5vh;
+    margin-bottom: 5vh;
     background-color: #FFFFFF;
 }
 
+main{
+    height: 90vh;
+}
+
 .logo{
-    width: 145px;
-    height: 18px;
+    width: 8vw;
+    height: 2vh;
 }
 
 .vector{
-    width: 20px;
-    height: 20px;
+    width: 1.5vw;
+    height: 3vh;
 }
 
 .header-content{
     display: flex;
-    gap: 24px;
+    gap: 5vw;
 }
 
 .links{
     display: flex;
-    flex-direction: row;
-    gap: 22px;
+    gap: 2vw;
 }
 
 .link{
     display: flex;
-    gap: 8px;
+    gap: 1vw;
+}
+
+.header-image{
+    height: 2vh;
 }
 
 a{
@@ -65,14 +73,13 @@ a{
 
 .logout{
     display: flex;
-    gap: 8px;
-    width: 95px;
-    height: 40px;
+    width: 6vw;
+    height: 5vh;
     border: 1px solid #543C52;
     border-radius: 1234px;
     background-color: #FFFFFF;
 }
 
 .logout p{
-    font-size: 14px;
+    font-size: 3vh;
 }

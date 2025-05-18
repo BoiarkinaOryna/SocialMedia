@@ -1,75 +1,73 @@
+header{
+    justify-content: center;
+}
 form{
     background-color: white;
     position: fixed;
-    width: 487px;
-    height: 552px;
-    top: 200px;
-    left: 250px;
+    width: 25vw;
+    height: 60vh;
+    top: 20vh;
+    left: 20vw;
     flex-direction: column;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: 50px;
-    padding: 44px;
+    border-radius: 2vh;
+    padding: 5vh;
     /* gap: 36px; */
 }
 .no-styles{
     position: static;
     width: fit-content;
     height: fit-content;
-    padding: 0;
 }
 .background-img{
     position: relative;
-    top: 248.45px;
-    left: 657.68px;
-    width: 679.3px;
-    height: 527.1;
-}
-.title{
-    display: flex;
-    gap: 16px;
+    top: 20vh;
+    left: 45vw;
+    width: 40vw;
 }
 .reg, .auth{
     color: #070A1C;
     position: relative;
-    size: 34px;
-    /* bottom: 53px;
-    right: 110px; */
+    font-size: 3.8vh;
     font-weight: 700;
 }
 .title h2 {
-    width: 259px;
-    height: 27px;
     font-family: 'GT Walsheim Pro', sans-serif;
     font-weight: 500;
-    font-size: 24px;
-    line-height: 100%;
+    font-size: 2.5vh;
     letter-spacing: -1%;
     text-align: center;
 }
-/* .auth{
-    position: relative;
-    size: 34px;
-    bottom: 270px;
-    left: 200px;
-    font-weight: 700;
-} */
+div{
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    align-items: start;
+    width: 20vw;
+}
+.title{
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+}
 input{
-    position: relative;
     background-color: white;
-    padding: 10px 16px;
-    top: 20px;
-    width: 399px;
-    height: 42px;
-    margin-bottom: 30px;
-    border-radius: 10px;
+    padding: 1vw 1vh;
+    top: 30vw;
+    width: 20vw;
+    height: 2vh;
+    margin-bottom: 1vw;
+    border-radius: 1vh;
     border: 1px solid #CDCED2;
 }
+.header-content{
+    width: fit-content;
+}
 .create{
-    font-size: 16px;
-    width: 399px;
-    height: 52px;
+    width: 20vw;
+    height: 5vh;
     border-radius: 1234px;
     background-color: #543C52;
     color: white;
@@ -78,7 +76,7 @@ input{
     /* top: 600px; */
 }
 .is-active{
-    border-bottom: 2px solid #543C52;
+    border-bottom: 0.5vh solid #543C52;
 }
 .is-passive{
     color: grey;
