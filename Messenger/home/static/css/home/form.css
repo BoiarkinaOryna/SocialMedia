@@ -1,84 +1,106 @@
-.dark{
+.dark {
     filter: brightness(30%);
 }
 
-.hidden-post-form{
+.hidden-post-form {
     display: none;
 }
 
-main{
+main {
     height: 100vh;
     display: flex;
 }
 
-.post-form{
+.post-form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    padding: 0px;
+    gap: 2.78vh;
+    padding: 0;
     margin: auto;
     position: absolute;
-    width: 773px;
-    height: 587px;
+    width: 53.68vw;
+    height: 81.39vh;
     background-color: white;
     border: 1px solid #81818D;
-    border-radius: 20px;
+    border-radius: 2.78vw;
     z-index: 3;
 }
-.send-p{
-    position:relative;
-    left: 102px;
-    bottom: 9px;
-}
-.creation{
-    width: 685px;
-    height: 39px;
+
+.send-p {
     position: relative;
-    top: 30px;
-    left: 20px;
+    left: 7.08vw;
+    bottom: 1.25vh;
+}
+
+.creation {
+    width: 47.57vw;
+    height: 5.42vh;
+    position: relative;
+    top: 4.17vh;
+    left: 1.39vw;
     padding: 10px;
 }
-.post-form p{
+
+.post-form p {
     position: relative;
     flex-direction: column;
-    right: 250px;
-    top: 20px;
-    width: 121px;
-    height: 18px;
-    margin: 24px;
-    font: GT Walsheim Pro;
+    right: 17.36vw;
+    top: 2.78vh;
+    width: 8.40vw;
+    height: 2.5vh;
+    margin: 3.33vh;
     size: 16px;
+}
 
+.post-form p textarea {
+    width: 47.57vw;
+    height: 18.06vh;
+    border-radius: 0.69vw;
 }
-.post-form p textarea{
-    width: 685px;
-    height: 126px;
-    border-radius: 10px;
-}
+
 .send {
     position: relative;
     font-size: 18px;
-    right: 6px;
+    right: 0.42vw;
     color: white;
-    top: 9px;
+    top: 1.25vh;
 }
-.post-form p input{
+
+.post-form p input {
     padding: 12px;
-    border-radius: 10px;
+    border-radius: 0.69vw;
     font-size: 16px;
     width: 100%;
     box-sizing: border-box;
     border: 1px solid #81818D;
-    width: 343px;
-    height: 42px;
+    width: 23.82vw;
+    height: 5.83vh;
 }
-.post-p{
-    background-color: #543C52; 
-    border-radius: 20px;
+
+.post-p {
+    background-color: #543C52;
+    border-radius: 1.39vw;
     border: 1px solid #543C52;
-    width: 130px;
-    height: 40px;
+    width: 9.03vw;
+    height: 5.56vh;
     position: relative;
-    left: 270px;
-    bottom: 10px;
-}  
+    left: 18.75vw;
+    bottom: 1.39vh;
+}
+
+.close-post-form {
+    position: absolute;
+    top: 1.5vh;
+    right: 2vw;
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    user-select: none;
+    z-index: 10;
+    transition: color 0.2s ease;
+}
+
+.close-post-form:hower {
+    color: #543C52;
+}

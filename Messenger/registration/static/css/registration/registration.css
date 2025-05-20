@@ -5,6 +5,7 @@ form{
     background-color: white;
     position: fixed;
     width: 25vw;
+    min-width: 400px;
     height: 60vh;
     top: 20vh;
     left: 20vw;

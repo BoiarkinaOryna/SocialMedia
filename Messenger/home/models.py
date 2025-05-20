@@ -9,7 +9,7 @@ class Image(models.Model):
 class Tag(models.Model):
     tag_name = models.CharField(max_length=50)
     def __str__(self):
-        return self.tag_name
+        return self.tag_name 
 
 class User_Post(models.Model):
     author = models.ForeignKey(Profile, on_delete=models.CASCADE)

@@ -11,4 +11,3 @@ def form_for_post(context: dict):
         'form': context.get("form"),
         'form_name': context.get("form_name")
     }
-# {% form_for_post context %}

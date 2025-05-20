@@ -43,6 +43,9 @@
             </div>
         </div>
     </div>   
+
+    
+
     <div class="social-media-feed"> 
         <div class="create-publication">
             <span class="thoughts">
@@ -80,6 +83,7 @@
                         <div id="menu-{{ post.id }}" class="dropdown-menu">
                             <form class="hidden-form" id="form-{{ post.id }}" method="post" action="{% url 'delete' post.id %}">
                                 {% csrf_token %}
+                                <button id="showChangePost">Змінити пост</button>
                                 <input type="hidden" name="delete_post" value="{{ post.id }}">
                                 <button type="submit">Видалити</button>
                             </form>
@@ -93,7 +97,9 @@
                             {{ post.content }}
                         </p>
                         <p class="post-tags">
-                            {{ post.tags }}
+                            {% for tag in post.tags.all %}
+                                {{ tag.tag_name }}
+                            {% endfor %}
                         </p>
                     </div>
                     <div class="aktives">

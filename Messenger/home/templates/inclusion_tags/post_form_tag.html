@@ -1,12 +1,15 @@
 {% load static %}
 
 <form id="createPostForm" class="hidden-post-form" method="post">
+    <span id="closePostForm" class="close-post-form">&times;</span>
+    {% csrf_token %}
     {% if  form_name == 'create_post' %}
         <h1 class = 'creation'>Створення публікації</h1>
+        <input type="hidden" value="create">
     {% else %}
         <h1 class = 'creation'>Редагування публікації</h1>
+        <input type="hidden" value="change">
     {% endif %}
-    {% csrf_token %}
     {{ form.as_p }}
     {% if form_name == 'create_post' %}
         <button class = 'post-p' type="submit">

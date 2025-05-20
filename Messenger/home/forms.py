@@ -1,7 +1,11 @@
 from django import forms
-from .models import User_Post
+from .models import User_Post, Tag
 
 class UserPostForm(forms.ModelForm):
+    # tags = forms.ModelMultipleChoiceField(
+    #     queryset = Tag.objects.all(),
+    #     widget = forms.CheckboxSelectMultiple()
+    # )
     class Meta:
         model = User_Post
         fields = ['title', 'theme', 'content', 'tags', 'link']#, 'images']
@@ -26,6 +30,7 @@ class UserPostForm(forms.ModelForm):
             'tags': '',
             'link': 'Посилання'
         }
+        
 
 class ChangeUserPostForm(forms.ModelForm):
     class Meta:
@@ -33,13 +38,13 @@ class ChangeUserPostForm(forms.ModelForm):
         fields = ['title', 'theme', 'content', 'tags', 'link']#, 'images']
         widgets = {
             'title': forms.TextInput(attrs = {
-                'placeholder': 'Напишіть заголовок публікації'
+                'placeholder': 'Змініть заголовок публікації'
             }),
             'theme': forms.TextInput(attrs = {
-                'placeholder': 'Напишіть тему публікації',
+                'placeholder': 'Змініть тему публікації',
             }),
             'content': forms.Textarea(attrs = {
-                'placeholder': 'Напишіть тему публікації',
+                'placeholder': 'Змініть тему публікації',
             }),
             'link': forms.URLInput(attrs = {
                 'placeholder': 'Вставьте посилання',

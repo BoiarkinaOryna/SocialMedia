@@ -1,22 +1,22 @@
-.post-options{
+.post-options {
     position: relative;
 }
 
-.hidden-form{
+.hidden-form {
     display: none;
 }
 
-.visible-form{
+.visible-form {
     position: absolute;
-    right: 20px;
+    right: 1.39vw;
     display: flex;
 }
 
-.visible-form button{
-    width: 100px;
-    height: 30px;
+.visible-form button {
+    width: 6.94vw;
+    height: 4.17vh;
     border: 1px solid #CDCED2;
-    border-radius: 5px;
+    border-radius: 0.35vw;
     background-color: #FAF8FF;
     color: #F43F5E;
     font-size: 20px;

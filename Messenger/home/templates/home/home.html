@@ -151,7 +151,9 @@
                             {{ post.content }}
                         </p>
                         <p class="post-tags">
-                            {{ post.tags }}
+                            {% for tag in post.tags.all %}
+                                {{ tag.tag_name }}
+                            {% endfor %}
                         </p>
                     </div>
                     <div class="aktives">
