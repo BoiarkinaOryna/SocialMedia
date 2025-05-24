@@ -13,12 +13,12 @@
 
 {% block content %}
 
-    {% form_for_post %}
+    {% form_for_post "" %}
 
     <div class="my-info">
         <div class="about-me">
             <div class="me">
-                <img class="my-avatar" src="{% static 'images/default-avatar.jpg' %}" alt="">
+                <img class="my-avatar" src="{% static 'images/default-avatar.jpg' %}" alt="" >
                 <div class="I-am-online"></div>
                 <span class="username">
                     <p class="name">Lina Li</p>
@@ -46,27 +46,27 @@
         <div class="friends">
             <span class="top-text">
                 <p class="section-title">
-                    <img src="{% static 'images/friends-grey.png' %}" alt=""> Запити
+                    <img src="{% static 'images/friends-grey.png' %}" alt="" class="small-images"> Запити
                 </p>
                 <p class="see-all">Дивитись всі</p>
             </span>
             <div class="friend-requests">
                 <div class="request">
-                    <img class="avatar" src="{% static 'images/friend1.jpg' %}" alt="">
+                    <img class="avatar" src="{% static 'images/friend1.jpg' %}" alt="" class="small-images">
                     <span class="friend-info">
                         <p class="friend-name">Yehor Aung</p>
                         <p class="friend-request-followers">4.3к підписників</p>
                     </span>
                 </div>
                 <div class="request">
-                    <img class="avatar" src="{% static 'images/friend2.jpg' %}" alt="">
+                    <img class="avatar" src="{% static 'images/friend2.jpg' %}" alt="" class="small-images">
                     <span class="friend-info">
                         <p class="friend-name">Ann Ann</p>
                         <p class="friend-request-followers">1.6к підписників</p>
                     </span>
                 </div>
                 <div class="request">
-                    <img class="avatar" src="{% static 'images/friend3.jpg' %}" alt="">
+                    <img class="avatar" src="{% static 'images/friend3.jpg' %}" alt=""class="small-images"> 
                     <span class="friend-info">
                         <p class="friend-name">Yeugen Jenua</p>
                         <p class="friend-request-followers">10.3к підписників</p>
@@ -78,27 +78,27 @@
         <div class="chats">
             <span class="top-text">
                 <p class="section-title">
-                    <img src="{% static 'images/chats-grey.png' %}" alt=""> Повідомлення
+                    <img src="{% static 'images/chats-grey.png' %}" alt="" class="small-images"> Повідомлення
                 </p>
                 <p class="see-all">Дивитись всі</p>
             </span>
             <div class="messages">
                 <div class="request">
-                    <img class="avatar" src="{% static 'images/friend4.jpg' %}" alt="">
+                    <img class="avatar" src="{% static 'images/friend4.jpg' %}" alt="" class="small-images">
                     <span class="friend-info">
                         <p class="friend-name">Mona Lisa</p>
                         <p class="friend-message">Привіт! Як справи ?</p>
                     </span>
                 </div>
                 <div class="request">
-                    <img class="avatar" src="{% static 'images/friend5.jpg' %}" alt="">
+                    <img class="avatar" src="{% static 'images/friend5.jpg' %}" alt="" class="small-images">
                     <span class="friend-info">
                         <p class="friend-name">Ann Ti</p>
                         <p class="friend-message">Привіт!</p>
                     </span>
                 </div>
                 <div class="request">
-                    <img class="avatar" src="{% static 'images/friend6.jpg' %}" alt="">
+                    <img class="avatar" src="{% static 'images/friend6.jpg' %}" alt="" class="small-images">
                     <span class="friend-info">
                         <p class="friend-name">Ness Ty</p>
                         <p class="friend-message">Привіт!</p>
@@ -115,14 +115,14 @@
             </span>
             <div class="custom">
                 <div class="add-image">
-                    <img src="{% static 'images/add-image.png' %}" alt="">
+                    <img src="{% static 'images/add-image.png' %}" alt="" class="small-images">
                 </div>
                 <div class="add-emoji">
-                    <img src="{% static 'images/add-emoji.png' %}" alt="">
+                    <img src="{% static 'images/add-emoji.png' %}" alt="" class="small-images">
                 </div>
                 <div id="createPublication" class="publish">
                     <p>Публікація</p>
-                    <img src="{% static 'images/send.png' %}" alt="">
+                    <img src="{% static 'images/send.png' %}" alt="" class="small-images">
                 </div>
             </div>
         </div>
@@ -136,7 +136,7 @@
                     <div class="creator-info">
                         <div class="main-info">
                             <div class="avatar-container">
-                                <img class="avatar" src="{% static 'images/avatar2.jpg' %}" alt="">
+                                <img class="avatar" src="{% static 'images/avatar2.jpg' %}" alt="" class="small-images">
                                 <div class="is-offline"></div>
                             </div>
                             <p class="creator-name">{{ post.author }}</p>
@@ -158,11 +158,11 @@
                     </div>
                     <div class="aktives">
                         <div class="likes">
-                            <img src="{% static 'images/likes.png' %}" alt="">
+                            <img src="{% static 'images/likes.png' %}" alt="" class="small-images">
                             <p>{{ post.likes }} Вподобань</p>
                         </div>
                         <div class="views">
-                            <img src="{% static 'images/views.png' %}" alt="">
+                            <img src="{% static 'images/views.png' %}" alt="" class="small-images">
                             <p>{{ post.views }} Переглядів</p>
                         </div>
                     </div>

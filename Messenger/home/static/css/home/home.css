@@ -113,12 +113,14 @@ body{
     display: flex;
     align-items: start;
     justify-content: left;
-    /* width: 100%; */
+    width: 100%;
     gap: 1vw;
 }
 
 .avatar-container{
     position: relative;
+    position: absolute;
+    inset-inline-start: 0;
 }
 
 .avatar{
@@ -143,7 +145,11 @@ body{
 }
 
 .friend-info{
+    /* position: absolute;
+    inset-inline-start: 0; */
     display: flex;
+    display: grid;
+    justify-items: start;
     flex-direction: column;
     justify-content: left;
     gap: 0.5vh;
@@ -243,7 +249,7 @@ body{
     display: flex;
     align-items: start;
     gap: 5vh;
-    padding: 20px;
+    padding: 1.5rem;
     height: fit-content;
     border-bottom: 1px solid #CDCED2;
 }
@@ -274,7 +280,7 @@ body{
     flex-direction: column;
     align-items: start;
     gap: 1vh;
-    padding: 16px 20px;
+    padding: 1.2rem 1.5rem;
 }
 
 .post-text{
@@ -322,7 +328,11 @@ body{
     width: fit-content;
 }
 
-
+.small-images {
+    height: 2vh;
+    /* width: 20vh;
+    object-fit: cover; */
+}
 
 /* @media (max-height: 900px){
     body{

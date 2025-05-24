@@ -13,7 +13,7 @@
 {% endblock %}
 
 {% block content %}
-    {% form_for_post %}
+
 
     <div class="my-info">
         <div class="about-me">
@@ -78,15 +78,18 @@
                             <p class="creator-name">{{ post.author }}</p>
                         </div>
                     </div>
-                    <div class="post-options" id="{{ post.id }}">
-                        <img src="{% static 'images/dots.png' %}" alt="Menu" class="dots">
+                    <div class="post-options">
+                        <img src="{% static 'images/dots.png' %}" alt="Menu" id="{{ post.id }}" class="dots">
                         <div id="menu-{{ post.id }}" class="dropdown-menu">
-                            <form class="hidden-form" id="form-{{ post.id }}" method="post" action="{% url 'delete' post.id %}">
+                            <form class="hidden-form" id="form-{{ post.id }}" method="post" action="{% url 'delete_post' post.id %}">
                                 {% csrf_token %}
-                                <button id="showChangePost">Змінити пост</button>
+                                <p id="{{ post.id }}" class="showChangePost">Змінити пост</p>
+                                <div class="change-form">
+                                </div>
                                 <input type="hidden" name="delete_post" value="{{ post.id }}">
                                 <button type="submit">Видалити</button>
                             </form>
+                            {% form_for_post post %}
                         </div>
                     </div>
                 </div>

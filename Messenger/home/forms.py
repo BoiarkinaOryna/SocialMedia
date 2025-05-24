@@ -2,13 +2,9 @@ from django import forms
 from .models import User_Post, Tag
 
 class UserPostForm(forms.ModelForm):
-    # tags = forms.ModelMultipleChoiceField(
-    #     queryset = Tag.objects.all(),
-    #     widget = forms.CheckboxSelectMultiple()
-    # )
     class Meta:
         model = User_Post
-        fields = ['title', 'theme', 'content', 'tags', 'link']#, 'images']
+        fields = ['title', 'theme', 'content', 'tags', 'link']
         widgets = {
             'title': forms.TextInput(attrs = {
                 'placeholder': 'Напишіть заголовок публікації'
@@ -35,7 +31,7 @@ class UserPostForm(forms.ModelForm):
 class ChangeUserPostForm(forms.ModelForm):
     class Meta:
         model = User_Post
-        fields = ['title', 'theme', 'content', 'tags', 'link']#, 'images']
+        fields = ['title', 'theme', 'content', 'tags', 'link']
         widgets = {
             'title': forms.TextInput(attrs = {
                 'placeholder': 'Змініть заголовок публікації'

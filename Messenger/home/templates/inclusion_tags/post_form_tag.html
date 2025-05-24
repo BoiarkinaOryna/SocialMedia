@@ -1,17 +1,20 @@
 {% load static %}
 
-<form id="createPostForm" class="hidden-post-form" method="post">
-    <span id="closePostForm" class="close-post-form">&times;</span>
-    {% csrf_token %}
-    {% if  form_name == 'create_post' %}
+{% if post == "" %}
+    <form id="create" class="hidden-post-form createPostForm" method="post">
+        <span id="closePostForm" class="close-post-form">&times;</span>
+        {% csrf_token %}
         <h1 class = 'creation'>Створення публікації</h1>
-        <input type="hidden" value="create">
-    {% else %}
-        <h1 class = 'creation'>Редагування публікації</h1>
-        <input type="hidden" value="change">
-    {% endif %}
+        <!-- <input type="hidden" value="create"> -->
+{% else %}
+    <form id="change{{ post.id }}" class="hidden-post-form changePostForm" action="{% url 'change_post' post.id %}" method="post">
+        <span id="closePostForm" class="close-post-form">&times;</span>
+        {% csrf_token %}
+        <h1 class = 'creation'>Редагування публікації {{ post.id }}</h1>
+        <!-- <input type="hidden" value="change"> -->
+{% endif %}
     {{ form.as_p }}
-    {% if form_name == 'create_post' %}
+    {% if post == "" %}
         <button class = 'post-p' type="submit">
                 <div class="publish-f">
                     <span class = 'send'>Публікація</span>
@@ -19,7 +22,7 @@
                 </div>
         </button> 
     {% else %}
-        <button class = 'post-p' type="submit">
+        <button id="{{ post.id }}" class = 'post-p' type="submit">
             <div class="publish-f">
                 <span class = 'send'>Публікація</span>
                 <img class = 'send-p' src="{% static 'images/send.png' %}" alt="">  

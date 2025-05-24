@@ -33,11 +33,6 @@ class HomePageView(FormMixin, ListView):
         post.save()
         form.save_m2m()
         return redirect("/")
-    
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["form_name"] = 'create_post'
-        return context
 
 class MyPostsView(FormMixin, ListView, ):
     queryset = User_Post.objects.all()
@@ -57,22 +52,26 @@ class MyPostsView(FormMixin, ListView, ):
             return self.form_valid(form)
         
     def form_valid(self, form):
-        # post = form.save(commit=False)
-        # post.author = Profile.objects.get(id=self.request.user.id)#.update()
-        post = User_Post.objects.filter(author = self.request.user.id)[0]
-        post.title = form.cleaned_data["title"]
-        post.theme = form.cleaned_data["theme"]
-        post.content = form.cleaned_data["content"]
-        post.link = form.cleaned_data["link"]
-        print("title changed")
+        post = form.save(commit=False)
+        post.author = Profile.objects.get(id=self.request.user.id)
+
         post.save()
-        post.tags.set(form.cleaned_data["tags"])
+        form.save_m2m()
+        # post = User_Post.objects.filter(author = self.request.user.id)[0]
+        # post.title = form.cleaned_data["title"]
+        # post.theme = form.cleaned_data["theme"]
+        # post.content = form.cleaned_data["content"]
+        # post.link = form.cleaned_data["link"]
+        # print("title changed")
+        # post.save()
+        # post.tags.set(form.cleaned_data["tags"])
         return redirect("/my_posts")
 
 class DeletePostView(DeleteView):
     model = User_Post
     success_url = reverse_lazy("my_posts")
 
-# class UpdatePostView(UpdateView):
-#     model = User_Post
-#     success_url = reverse_lazy("my_posts")
+class UpdatePostView(UpdateView):
+    model = User_Post
+    fields = ['title', 'theme', 'content', 'tags', 'link']
+    success_url = reverse_lazy("my_posts")
