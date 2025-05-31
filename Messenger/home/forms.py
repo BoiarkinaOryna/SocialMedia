@@ -1,5 +1,5 @@
 from django import forms
-from .models import User_Post, Tag
+from .models import User_Post
 
 class UserPostForm(forms.ModelForm):
     class Meta:

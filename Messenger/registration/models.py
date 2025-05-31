@@ -7,7 +7,7 @@ class Profile(AbstractUser):
     avatar = models.ImageField(upload_to = 'images/avatar')
     email = models.EmailField(max_length = 35, null = False, unique = True)
     description = models.TextField(max_length = 500)
-    birthday = models.DateField(auto_now = True)
+    birthday = models.DateField()
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []

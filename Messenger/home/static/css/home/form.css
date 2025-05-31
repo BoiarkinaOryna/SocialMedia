@@ -1,5 +1,13 @@
-.dark {
-    filter: brightness(30%);
+.dark-background{
+    z-index: 2;
+    background-color: #070a1c9a;
+}
+
+.active-dark-background{
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
 }
 
 .hidden-post-form {
@@ -7,46 +15,36 @@
 }
 
 main {
-    height: 100vh;
     display: flex;
 }
 
 .post-form {
+    position: fixed;
+    z-index: 3;
+    top: 5vh;
     display: flex;
     flex-direction: column;
     gap: 2.78vh;
     padding: 0;
-    /* margin: auto; */
-    /* position: absolute; */
     width: 53.68vw;
-    height: 81.39vh;
+    height: 90vh;
     background-color: white;
     border: 1px solid #81818D;
     border-radius: 2.78vw;
-    z-index: 10;
-}
-
-.send-p {
-    position: relative;
-    left: 7.08vw;
-    bottom: 1.25vh;
 }
 
 .creation {
-    width: 47.57vw;
+    width: 48vw;
     height: 5.42vh;
     position: relative;
     top: 4.17vh;
-    left: 1.39vw;
-    padding: 10px;
+    font-size: 3vh;
 }
 
 .post-form p {
     position: relative;
     flex-direction: column;
-    right: 17.36vw;
-    top: 2.78vh;
-    width: 8.40vw;
+    width: 48vw;
     height: 2.5vh;
     margin: 3.33vh;
     size: 16px;
@@ -61,13 +59,13 @@ main {
 .send {
     position: relative;
     font-size: 18px;
-    right: 0.42vw;
+    /* right: 0.42vw; */
     color: white;
-    top: 1.25vh;
+    /* top: 1.25vh; */
 }
 
 .post-form p input {
-    padding: 12px;
+    padding: 0.5vw;
     border-radius: 0.69vw;
     font-size: 16px;
     width: 100%;
@@ -78,20 +76,22 @@ main {
 }
 
 .post-p {
+    display: flex;
     background-color: #543C52;
     border-radius: 1.39vw;
     border: 1px solid #543C52;
-    width: 9.03vw;
-    height: 5.56vh;
+    width: 9vw;
+    height: 4vh;
     position: relative;
     left: 18.75vw;
     bottom: 1.39vh;
+    gap: 0.5vh;
 }
 
 .close-post-form {
     position: absolute;
-    top: 1.5vh;
-    right: 2vw;
+    top: 4vh;
+    right: 3vw;
     font-size: 24px;
     font-weight: bold;
     color: black;
@@ -101,6 +101,16 @@ main {
     transition: color 0.2s ease;
 }
 
-.close-post-form:hower {
-    color: #543C52;
+select{
+    display: flex;
+    flex-wrap: wrap;
+    width: 47.57vw;
+    border: none;
+}
+
+option{
+    height: 2vh;
+    width: fit-content;
+    border-radius: 0.5vh;
+    background-color: #E9E5EE;
 }

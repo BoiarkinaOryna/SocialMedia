@@ -1,0 +1,66 @@
+.no-albums{
+    height: 8vh;
+}
+
+.my-albums{
+    height: fit-content;
+}
+
+.pseudo-header div{
+    display: flex;
+    gap: 1vw;
+}
+
+.delete-top{
+    display: flex;
+    justify-content: end;
+    align-items: start;
+    padding: 1vh;
+}
+
+.my-albums span{
+    width: 67vw;
+    display: flex;
+    justify-content: left;
+    gap: 1vw;
+}
+
+.album-creation-date{
+    color: #81818D;
+}
+
+hr{
+    width: 67vw;
+    color: #CDCED2;
+}
+
+.album-images{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    gap: 2vw;
+    width: 67vw;
+}
+
+.image{
+    width: 20vh;
+    height: 20vh;
+    border-radius: 1vh;
+    background-color: #e0dfcf;
+}
+
+.add-image{
+    display: flex;
+    width: 20vh;
+    height: 20vh;
+    border: 1px dotted #81818D;
+    border-radius: 1vh;
+}
+
+.button-bottom{
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    gap: 0.5vw;
+    padding: 1vh;
+}

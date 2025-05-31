@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'registration',
-    'home'
+    'home',
+    'settings'
 ]
 
 MIDDLEWARE = [
@@ -60,7 +61,8 @@ TEMPLATES = [
         'DIRS': [
             BASE_DIR / 'templates',
             BASE_DIR / 'registration' / 'templates',
-            BASE_DIR / 'home' / 'templates'
+            BASE_DIR / 'home' / 'templates',
+            BASE_DIR / 'settings' / 'templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -127,13 +129,15 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
     BASE_DIR / 'registration' / 'static',
     BASE_DIR / 'home' / 'static',
+    BASE_DIR / 'settings' / 'static',
 ]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = [
     BASE_DIR / 'media',
     BASE_DIR / 'registration' / 'media',
-    BASE_DIR / 'home' / 'media'
+    BASE_DIR / 'home' / 'media',
+    BASE_DIR / 'settings' / 'media',
 ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

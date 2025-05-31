@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Інформація
+{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/settings.css' %}">
+    <link rel="stylesheet" href="{% static 'css/info/info.css' %}">
+{% endblock %}
+
+{% block content %}
+    
+    <div class="settings-links">
+        <h1 class="is-active">Особиста інформація</h1>
+        <a href="/settings/albums" class="is-passive">Альбоми</a>
+    </div>
+
+    <div class="main-block">
+
+        <div class="card">
+            <div class="pseudo-header">
+                <h2 class="title">Картка профілю</h2>
+                <button class="header-button" type="button">
+                    <img class="header-image" src="{% static 'images/pen.png' %}" alt="">
+                    Редагувати інформацію
+                </button>
+            </div>
+            <div class="main-info">
+                <div class="my-avatar"></div>
+                <h3>Lina Li</h3>
+                <p>@thelili</p>
+            </div>
+        </div>
+
+        <div class="card personal-info">
+            <div class="pseudo-header">
+                <h2 class="title">Особиста інформація</h2>
+                <button class="header-button" type="button">
+                    <img class="header-image" src="{% static 'images/pen.png' %}" alt="">
+                    Редагувати інформацію
+                </button>
+            </div>
+            <form action="" class="edit-info">
+                {{ form.as_p }}
+            </form>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+    
+{% endblock %}

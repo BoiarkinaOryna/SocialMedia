@@ -3,7 +3,7 @@
 {% load post_forms %}
 
 {% block title %}
-    Home
+    Домашня сторінка
 {% endblock %}
 
 {% block links %}
@@ -12,6 +12,8 @@
 {% endblock %}
 
 {% block content %}
+
+    <div class="dark-background"></div>
 
     {% form_for_post "" %}
 
@@ -121,8 +123,7 @@
                     <img src="{% static 'images/add-emoji.png' %}" alt="" class="small-images">
                 </div>
                 <div id="createPublication" class="publish">
-                    <p>Публікація</p>
-                    <img src="{% static 'images/send.png' %}" alt="" class="small-images">
+                    <p>Перейти до оформлення</p>
                 </div>
             </div>
         </div>

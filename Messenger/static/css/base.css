@@ -1,6 +1,6 @@
 @font-face {
     font-family: "GT Walsheim Pro";
-    src: url(../font/GT_Walsheim_Pro/GTWalsheimPro-CondensedRegular.ttf);
+    src: url(../font/GT_Walsheim_Pro/GTWalsheimPro-Light.ttf);
 }
 
 *{
@@ -20,6 +20,7 @@
 body{
     background-color: #E9E5EE;
     overflow: hidden;
+    height: 95vh;
 }
 
 header{
@@ -29,28 +30,26 @@ header{
     width: 100vw;
     height: 10vh;
     justify-content: space-between;
-    padding: 0px 5vh;
     margin-bottom: 5vh;
     background-color: #FFFFFF;
 }
 
-main{
-    height: 90vh;
-}
-
 .logo{
+    position: absolute;
+    top: 4vh;
+    left: 5vw;
     width: 8vw;
     height: 2vh;
 }
 
 .vector{
-    width: 1.5vw;
+    width: 2vw;
     height: 3vh;
 }
 
 .header-content{
     display: flex;
-    gap: 5vw;
+    gap: 7vw;
 }
 
 .links{
@@ -72,14 +71,16 @@ a{
 }
 
 .logout{
+    position: relative;
+    right: 5vw;
     display: flex;
-    width: 6vw;
-    height: 5vh;
+    width: fit-content;
+    height: 4vh;
     border: 1px solid #543C52;
     border-radius: 1234px;
     background-color: #FFFFFF;
 }
 
 .logout p{
-    font-size: 3vh;
+    font-size: 2.5vh;
 }

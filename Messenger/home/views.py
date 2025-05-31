@@ -1,11 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
-from django.views.generic.base import TemplateView
 from django.views.generic.list import ListView
 from django.views.generic.edit import FormMixin
 from django.views.generic import DeleteView, UpdateView
 from .forms import UserPostForm, ChangeUserPostForm
-from .models import User_Post, Tag
+from .models import User_Post
 from registration.models import Profile
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseForbidden
@@ -34,7 +33,7 @@ class HomePageView(FormMixin, ListView):
         form.save_m2m()
         return redirect("/")
 
-class MyPostsView(FormMixin, ListView, ):
+class MyPostsView(FormMixin, ListView):
     queryset = User_Post.objects.all()
     form_class = ChangeUserPostForm
     template_name = "my_posts/my_posts.html"
@@ -57,14 +56,6 @@ class MyPostsView(FormMixin, ListView, ):
 
         post.save()
         form.save_m2m()
-        # post = User_Post.objects.filter(author = self.request.user.id)[0]
-        # post.title = form.cleaned_data["title"]
-        # post.theme = form.cleaned_data["theme"]
-        # post.content = form.cleaned_data["content"]
-        # post.link = form.cleaned_data["link"]
-        # print("title changed")
-        # post.save()
-        # post.tags.set(form.cleaned_data["tags"])
         return redirect("/my_posts")
 
 class DeletePostView(DeleteView):

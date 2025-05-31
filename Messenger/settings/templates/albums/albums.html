@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Альбоми
+{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/settings.css' %}">
+    <link rel="stylesheet" href="{% static 'css/albums/albums.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <div class="settings-links">
+        <a href="/settings" class="is-passive">Особиста інформація</a>
+        <h1 class="is-active">Альбоми</h1>
+    </div>
+
+    <div class="main-block">
+        <div class="card my-albums">
+            <div class="pseudo-header">
+                <h2 class="title">Мої фото</h2>
+                <button class="header-button" type="button">
+                    <img class="header-image" class="header-image" src="{% static 'images/add-image.png' %}" alt="">
+                    Додати фото
+                </button>
+            </div>
+
+            <div class="album-images">
+                <div class="image delete-top">
+                    <button class="header-button round">
+                        <img class="header-image" src="{% static 'images/trashcan.png' %}" alt="">
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card no-albums">
+            <div class="pseudo-header">
+                <h2 class="title">Немає ще жодного альбому</h2>
+                <button class="header-button" type="button">
+                    <img class="header-image" src="{% static 'images/plus.png' %}" alt="">
+                    Створити альбом
+                </button>
+            </div>
+        </div>
+
+        <div class="card my-albums">
+            <div class="pseudo-header">
+                <h2 class="title">Настрій</h2>
+                <div>
+                    <button class="header-button round" type="button">
+                        <img class="header-image" src="{% static 'images/eye.png' %}" alt="">
+                    </button>
+                    <img class="header-image" src="{% static 'images/dots.png' %}" alt="" class="dots">
+                </div>
+            </div>
+            <span>
+                Природа
+                <p class="album-creation-date">2025 pik</p>
+            </span>
+            <hr>
+            <span><h3>Фотографії</h3></span>
+            <div class="album-images">
+                <div class="add-image image">
+                    <button class="header-button round" type="button">
+                        <img class="header-image" src="{% static 'images/plus.png' %}" alt="">
+                    </button>
+                </div>
+                <div class="image button-bottom">
+                    <button class="header-button round" type="button">
+                        <img class="header-image" src="{% static 'images/eye.png' %}" alt="">
+                    </button>
+                    <button class="header-button round" type="button">
+                        <img class="header-image" src="{% static 'images/trashcan.png' %}" alt="">
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+    
+{% endblock %}

@@ -1,11 +1,7 @@
-body{
-    overflow-y: scroll;
-}
-
 .my-info{
     position: absolute;
     top: 12vh;
-    left: 3vw;
+    left: 5vw;
     display: flex;
     flex-direction: column;
     gap: 1vh;
@@ -15,7 +11,7 @@ body{
     display: flex;
     flex-direction: column;
     width: 20vw;
-    height: 27vh;
+    height: 28vh;
     padding: 2vw;
     border: 1px solid #CDCED2;
     border-radius: 1vh;
@@ -168,11 +164,10 @@ body{
     top: 12vh;
     gap: 0.5vh;
     z-index: 1;
-    right: 3vw;
-    margin-top: 8px; 
-    width: 70vw;
-
+    right: 5vw;
+    width: 69vw;
 }
+
 
 .create-publication{
     display: flex;
@@ -181,7 +176,7 @@ body{
     gap: 0.8vh;
     width: 70vw;
     height: 12vh;
-    padding: 16px;
+    padding: 1.5vw;
     border: 1px solid #CDCED2;
     border-radius: 1vh;
     background-color: #FFFFFF;
@@ -199,8 +194,7 @@ body{
 
 .custom{
     position: relative;
-    width: 65vw;
-    /* right: 16vw; */
+    width: 100%;
     display: flex;
     align-items: end;
     justify-content: end;
@@ -218,7 +212,7 @@ body{
 .publish{
     display: flex;
     gap: 0.5vh;
-    width: 9vw;
+    width: 15vw;
     height: 4vh;
     border-radius: 1234px;
     background-color: #543C52;
@@ -249,7 +243,7 @@ body{
     display: flex;
     align-items: start;
     gap: 5vh;
-    padding: 1.5rem;
+    padding: 1.5vw;
     height: fit-content;
     border-bottom: 1px solid #CDCED2;
 }

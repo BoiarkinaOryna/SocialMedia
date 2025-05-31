@@ -16,17 +16,13 @@
     {{ form.as_p }}
     {% if post == "" %}
         <button class = 'post-p' type="submit">
-                <div class="publish-f">
-                    <span class = 'send'>Публікація</span>
-                    <img class = 'send-p' src="{% static 'images/send.png' %}" alt="">  
-                </div>
+            <span class = 'send'>Публікація</span>
+            <img class='small-images' src="{% static 'images/send.png' %}" alt="">  
         </button> 
     {% else %}
         <button id="{{ post.id }}" class = 'post-p' type="submit">
-            <div class="publish-f">
-                <span class = 'send'>Публікація</span>
-                <img class = 'send-p' src="{% static 'images/send.png' %}" alt="">  
-            </div>
+            <span class = 'send'>Публікація</span>
+            <img class = 'small-images' src="{% static 'images/send.png' %}" alt="">  
         </button>
     {% endif %}
 </form>

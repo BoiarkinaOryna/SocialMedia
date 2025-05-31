@@ -3,7 +3,7 @@
 {% load post_forms %}
 
 {% block title %}
-    My Posts
+    Мої пости
 {% endblock %}
 
 {% block links %}
@@ -14,6 +14,9 @@
 
 {% block content %}
 
+    <div class="dark-background"></div>
+
+    {% form_for_post "" %}
 
     <div class="my-info">
         <div class="about-me">
@@ -53,14 +56,13 @@
             </span>
             <div class="custom">
                 <div class="add-image">
-                    <img src="{% static 'images/add-image.png' %}" alt="">
+                    <img src="{% static 'images/add-image.png' %}" alt="" class="small-images">
                 </div>
                 <div class="add-emoji">
-                    <img src="{% static 'images/add-emoji.png' %}" alt="">
+                    <img src="{% static 'images/add-emoji.png' %}" alt="" class="small-images">
                 </div>
                 <div id="createPublication" class="publish">
-                    <p>Публікація</p>
-                    <img src="{% static 'images/send.png' %}" alt="">
+                    <p>Перейти до оформлення</p>
                 </div>
             </div>
         </div>
