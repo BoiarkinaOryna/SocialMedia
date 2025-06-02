@@ -35,8 +35,8 @@
     position: absolute;
     width: 2vh;
     height: 2vh;
-    top: 6.5vh;
-    left: 4vw;
+    top: 3.5vw;
+    left: 3.5vw;
     border: 1px solid #FFFFFF;
     border-radius: 1234px;
     background-color: #22C55E;
@@ -115,23 +115,21 @@
 
 .avatar-container{
     position: relative;
-    position: absolute;
-    inset-inline-start: 0;
-}
-
-.avatar{
+    display: flex;
+    overflow: hidden;
     width: 3vw;
     height: 3vw;
-    border-radius: 100%;
+    border-radius: 1234px;
+    background-color: #81818D;
 }
 
 .is-online, .is-offline{
-    position: absolute;
+    position: relative;
     width: 1.5vh;
     height: 1.5vh;
-    top: 4.3vh;
-    left: 2.3vw;
-    border: 2px solid #FFFFFF;
+    top: 1vw;
+    left: 1vw;
+    border: 1px solid #FFFFFF;
     border-radius: 1234px;
     background-color: #22C55E;
 }
@@ -203,7 +201,7 @@
 
 .add-image, .add-emoji{
     display: flex;
-    width: 4vw;
+    width: 4vh;
     height: 4vh;
     border: 1px solid #543C52;
     border-radius: 1234px;
@@ -212,8 +210,9 @@
 .publish{
     display: flex;
     gap: 0.5vh;
-    width: 15vw;
+    width: fit-content;
     height: 4vh;
+    padding: 1vh;
     border-radius: 1234px;
     background-color: #543C52;
 }
@@ -231,10 +230,10 @@
 
 .post{
     width: 70vw;
-    margin-top: 8px;
+    margin-top: 0.2vw;
     height: fit-content;
     border: 1px solid #CDCED2;
-    margin-bottom: 3px;
+    margin-bottom: 0.1vh;
     border-radius: 1vh;
     background-color: #FFFFFF;
 }
@@ -253,16 +252,13 @@
     position: relative;
     width: 65vw;
     height: fit-content;
-    /* bottom: 8px;
-    left: 25px; */
-    /* flex: 1; */
     justify-content: space-between;
 }
 
 .main-info{
     position: relative;
     display: flex;
-    gap: 1vh;
+    gap: 1vw;
 }
 
 .signature{
@@ -274,7 +270,7 @@
     flex-direction: column;
     align-items: start;
     gap: 1vh;
-    padding: 1.2rem 1.5rem;
+    padding: 1.2vh 1.5vw;
 }
 
 .post-text{
@@ -305,7 +301,7 @@
 .three-in-row-img{
     width: 10vw;
     height: 11vh;
-    border-radius: 16px;   
+    border-radius: 1vh;   
 }
 
 .aktives{
@@ -324,8 +320,6 @@
 
 .small-images {
     height: 2vh;
-    /* width: 20vh;
-    object-fit: cover; */
 }
 
 /* @media (max-height: 900px){

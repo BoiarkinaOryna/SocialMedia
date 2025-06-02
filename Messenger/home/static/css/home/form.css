@@ -103,12 +103,15 @@ main {
 
 select{
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     width: 47.57vw;
     border: none;
+    size: 2;
 }
 
 option{
+    display: inline;
     height: 2vh;
     width: fit-content;
     border-radius: 0.5vh;

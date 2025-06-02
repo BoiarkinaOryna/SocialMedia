@@ -85,11 +85,15 @@
                         <div id="menu-{{ post.id }}" class="dropdown-menu">
                             <form class="hidden-form" id="form-{{ post.id }}" method="post" action="{% url 'delete_post' post.id %}">
                                 {% csrf_token %}
-                                <p id="{{ post.id }}" class="showChangePost">Змінити пост</p>
+                                <img src="{% static 'images/pen-blue.png' %}" alt="" id="" class="pencil">
+                                <p id="{{ post.id }}" class="showChangePost">Редагувати допис</p>
+                                <img src="{% static 'images/bin.png' %}" alt="" id="" class="bin">
                                 <div class="change-form">
                                 </div>
                                 <input type="hidden" name="delete_post" value="{{ post.id }}">
-                                <button type="submit">Видалити</button>
+                                <button type="submit">
+                                    Видалити публікацію
+                                </button>
                             </form>
                             {% form_for_post post %}
                         </div>

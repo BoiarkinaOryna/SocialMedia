@@ -8,16 +8,44 @@
 
 .visible-form {
     position: absolute;
-    right: 1.39vw;
+    background-color: #E9E5EE;
+    width: 19vw;
+    right: -1vw;
+    bottom: -9vh;
+    height: 12vh;
+    border-radius: 10px;
     display: flex;
 }
 
 .visible-form button {
-    width: 6.94vw;
+    font-weight: bold;
+    position: absolute;
+    top: 6vh;
+    right: 5.5vw;
+    width: 12.94vw;
     height: 4.17vh;
-    border: 1px solid #CDCED2;
+    background-color: #E9E5EE;
+    border: 1px solid #E9E5EE;
     border-radius: 0.35vw;
-    background-color: #FAF8FF;
-    color: #F43F5E;
     font-size: 20px;
 }
+.showChangePost{
+    font-weight: bold;
+    position: absolute;
+    border-bottom: 3px solid #CDCED2;
+    padding: 10px;
+    bottom: 7vh;
+    right: 6.6vw;
+}
+.pencil{
+    position: absolute;
+    bottom: 8.5vh;
+    right: 17.5vw;
+}
+.bin{
+    position: absolute;
+    z-index: 1;
+    right: 17.5vw;
+    top: 7.4vh;
+}
+

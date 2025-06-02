@@ -76,6 +76,7 @@ a{
     display: flex;
     width: fit-content;
     height: 4vh;
+    padding: 1vh;
     border: 1px solid #543C52;
     border-radius: 1234px;
     background-color: #FFFFFF;

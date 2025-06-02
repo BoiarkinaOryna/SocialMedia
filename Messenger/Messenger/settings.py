@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'registration',
     'home',
-    'settings'
+    'settings',
+    "friends"
 ]
 
 MIDDLEWARE = [
@@ -63,6 +64,7 @@ TEMPLATES = [
             BASE_DIR / 'registration' / 'templates',
             BASE_DIR / 'home' / 'templates',
             BASE_DIR / 'settings' / 'templates',
+            BASE_DIR / 'friends' / 'templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -130,6 +132,7 @@ STATICFILES_DIRS = [
     BASE_DIR / 'registration' / 'static',
     BASE_DIR / 'home' / 'static',
     BASE_DIR / 'settings' / 'static',
+    BASE_DIR / 'friends' / 'static',
 ]
 
 MEDIA_URL = '/media/'
@@ -138,6 +141,7 @@ MEDIA_ROOT = [
     BASE_DIR / 'registration' / 'media',
     BASE_DIR / 'home' / 'media',
     BASE_DIR / 'settings' / 'media',
+    BASE_DIR / 'friends' / 'media',
 ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
