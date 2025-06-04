@@ -161,7 +161,7 @@
     position: absolute;
     top: 12vh;
     gap: 0.5vh;
-    z-index: 1;
+    /* z-index: 0; */
     right: 5vw;
     width: 69vw;
 }
@@ -242,7 +242,7 @@
     display: flex;
     align-items: start;
     gap: 5vh;
-    padding: 1.5vw;
+    padding: 1vw;
     height: fit-content;
     border-bottom: 1px solid #CDCED2;
 }

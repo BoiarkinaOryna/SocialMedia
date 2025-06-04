@@ -1,0 +1,15 @@
+.card{
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+    height: fit-content;
+}
+
+.user-card{
+    display: flex;
+    gap: 2vh;
+    width: 17vw;
+    height: 30vh;
+    border: 1px solid #CDCED2;
+    border-radius: 1vh;
+}

@@ -1,5 +1,5 @@
 const showCreatePost = document.getElementById("createPublication");
-const showChangePost = document.querySelector(".showChangePost");
+const showChangePost = document.querySelectorAll(".showChangePost");
 const formCreate = document.getElementById("create");
 const formChangeList = document.querySelectorAll(".changePostForm");
 const main = document.querySelector("main");
@@ -11,12 +11,14 @@ const closeButtonList = document.querySelectorAll("#closePostForm");
 const darkBackgrond = document.querySelector(".dark-background");
 
 let buttonList = [showCreatePost];
-// let buttonList = [];
+
 if (showChangePost != null){
-    buttonList.push(showChangePost);
+    for (let item of showChangePost){
+        buttonList.push(item);
+    }
 }
 let formList = [formCreate];
-// let formList = [];
+
 console.log("formList1 =", formList);
 if (formChangeList != null){
     for (let element of formChangeList){
@@ -31,15 +33,18 @@ for (let button of buttonList){
         darkBackgrond.classList.add("active-dark-background");
         for (form of formList){
             if (form.id == "create"){
-                form.classList.add("post-form");
-                form.classList.remove("hidden-post-form");
+                // console.log("button (create) id =", button.id)
+                if (button.id == "createPublication"){
+                    form.classList.add("post-form");
+                    form.classList.remove("hidden-post-form");
+                }
             } else{
-                console.log("1");
                 // for (let oneForm of form){
                 let oneForm = form;
                     console.log("oneForm =", oneForm.id);
-                    console.log(`change${button.id}`);
+                    console.log("button.id", button.id);
                     if (oneForm.id == `change${button.id}`){
+                        console.log("1");
                         form.classList.add("post-form");
                         form.classList.remove("hidden-post-form");
                     }
@@ -54,13 +59,10 @@ for (let closeButton of closeButtonList){
     console.log("closeButton", closeButton)
     closeButton.addEventListener("click", ()=>{
         for (form of formList){
-            if (form.id == "create"){
+            if (!form.classList.contains("hidden-post-form")){
                 form.classList.add("hidden-post-form");
-                form.classList.remove("post-form");
-            } else if (form.id == "create"){
-                form.classList.add("hidden-post-form");
-                form.classList.remove("post-form");
             }
+            form.classList.remove("post-form");
         }
         darkBackgrond.classList.remove("active-dark-background");
     });

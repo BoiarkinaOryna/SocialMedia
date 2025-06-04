@@ -1,5 +1,6 @@
 from django import forms
 from .models import User_Post
+from registration.models import Profile
 
 class UserPostForm(forms.ModelForm):
     class Meta:
@@ -52,4 +53,25 @@ class ChangeUserPostForm(forms.ModelForm):
             'content': '',
             'tags': '',
             'link': 'Посилання'
+        }
+
+class FirstEditInfoForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ["first_name", "last_name", "username"]
+        labels = {
+            "first_name": "Ім'я",
+            "last_name": "Прізвище",
+            "username": "Ім'я користувача",
+        }
+        widgets = {
+            "first_name": forms.TextInput(attrs = {
+                "placeholder": "Введіть Ваше ім’я"
+            }),
+            "last_name": forms.TextInput(attrs = {
+                "placeholder": "Введіть Ваше прізвище"
+            }),
+            "username": forms.TextInput(attrs = {
+                "value": "@"
+            }),
         }

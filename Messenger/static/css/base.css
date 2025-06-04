@@ -8,7 +8,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: none;
     color: #070A1C;
     font-family: GT Walsheim Pro;
 
@@ -42,11 +41,6 @@ header{
     height: 2vh;
 }
 
-.vector{
-    width: 2vw;
-    height: 3vh;
-}
-
 .header-content{
     display: flex;
     gap: 7vw;
@@ -74,14 +68,11 @@ a{
     position: relative;
     right: 5vw;
     display: flex;
+    gap: 0.2vw;
     width: fit-content;
     height: 4vh;
     padding: 1vh;
     border: 1px solid #543C52;
     border-radius: 1234px;
     background-color: #FFFFFF;
-}
-
-.logout p{
-    font-size: 2.5vh;
 }

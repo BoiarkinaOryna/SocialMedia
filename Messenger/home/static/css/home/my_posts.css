@@ -44,7 +44,6 @@
 }
 .bin{
     position: absolute;
-    z-index: 1;
     right: 17.5vw;
     top: 7.4vh;
 }

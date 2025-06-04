@@ -1,9 +1,9 @@
 .dark-background{
-    z-index: 2;
     background-color: #070a1c9a;
 }
 
 .active-dark-background{
+    z-index: 1;
     position: absolute;
     top: 0;
     width: 100vw;
@@ -21,20 +21,21 @@ main {
 .post-form {
     position: fixed;
     z-index: 3;
-    top: 5vh;
+    top: 10vh;
+    left: 20vw;
     display: flex;
     flex-direction: column;
     gap: 2.78vh;
-    padding: 0;
-    width: 53.68vw;
-    height: 90vh;
-    background-color: white;
+    padding-bottom: 5vh;
+    width: 55vw;
+    height: 80vh;
+    background-color: #FFFFFF;
     border: 1px solid #81818D;
-    border-radius: 2.78vw;
+    border-radius: 3vh;
 }
 
 .creation {
-    width: 48vw;
+    width: 50vw;
     height: 5.42vh;
     position: relative;
     top: 4.17vh;
@@ -44,14 +45,14 @@ main {
 .post-form p {
     position: relative;
     flex-direction: column;
-    width: 48vw;
-    height: 2.5vh;
-    margin: 3.33vh;
+    width: 50vw;
+    height: 2.8vh;
+    margin: auto;
     size: 16px;
 }
 
 .post-form p textarea {
-    width: 47.57vw;
+    width: 50vw;
     height: 18.06vh;
     border-radius: 0.69vw;
 }
@@ -75,16 +76,21 @@ main {
     height: 5.83vh;
 }
 
-.post-p {
+.post-form span{
+    display: flex;
+    justify-content: flex-end;
+    width: 50vw;
+}
+
+.post-p{
     display: flex;
     background-color: #543C52;
     border-radius: 1.39vw;
     border: 1px solid #543C52;
-    width: 9vw;
+    width: fit-content;
     height: 4vh;
+    padding: 1vh;
     position: relative;
-    left: 18.75vw;
-    bottom: 1.39vh;
     gap: 0.5vh;
 }
 

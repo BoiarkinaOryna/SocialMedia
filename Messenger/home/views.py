@@ -1,10 +1,10 @@
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views.generic.list import ListView
 from django.views.generic.edit import FormMixin
 from django.views.generic import DeleteView, UpdateView
-from .forms import UserPostForm, ChangeUserPostForm
-from .models import User_Post
+from .forms import UserPostForm, ChangeUserPostForm, FirstEditInfoForm
+from .models import User_Post, Image
 from registration.models import Profile
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseForbidden
@@ -14,6 +14,13 @@ class HomePageView(FormMixin, ListView):
     form_class = UserPostForm
     template_name = "home/home.html"
     success_url = "/"
+
+    def get(self, request, *args, **kwargs):
+        # user = User_Post.objects.get(request.user)
+        if not request.user.username:
+            print("request.user.id =", request.user.id)
+            return render(request, "home/home.html", {"edit_form": FirstEditInfoForm}, *args, **kwargs)
+        return super().get(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
@@ -66,3 +73,8 @@ class UpdatePostView(UpdateView):
     model = User_Post
     fields = ['title', 'theme', 'content', 'tags', 'link']
     success_url = reverse_lazy("my_posts")
+
+class UpdatePrifileView(UpdateView):
+    model = Profile
+    fields = ["first_name", "last_name", "username"]
+    success_url = reverse_lazy("home")

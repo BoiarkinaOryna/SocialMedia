@@ -9,6 +9,7 @@
 {% block links %}
     <link rel="stylesheet" href="{% static 'css/home/home.css' %}">
     <link rel="stylesheet" href="{% static 'css/home/form.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home/info-form.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -136,6 +137,17 @@
 
         
         <div class="feed">
+
+            {% if edit_form %}
+                <form class="edit-info-form" action="{% url 'edit-profile' request.user.id %}" method="post">
+                    {% csrf_token %}
+                    <h2>Додай деталі про себе</h2>
+                    {{ edit_form }}
+                    <span>
+                        <button class="post-p">Продовжити</button>
+                    </span>
+                </form>
+            {% endif %}
         
             {% for post in object_list %}
             <div class="post">

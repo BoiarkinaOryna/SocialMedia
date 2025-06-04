@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 class Profile(AbstractUser):
-    username = models.CharField(max_length = 25, null = True, unique = False, default = "username")
+    username = models.CharField(max_length = 25, null = True, unique = False)
     avatar = models.ImageField(upload_to = 'images/avatar')
     email = models.EmailField(max_length = 35, null = False, unique = True)
     description = models.TextField(max_length = 500)
