@@ -12,20 +12,19 @@
         <h1 class = 'creation'>Редагування публікації {{ post.id }}</h1>
 {% endif %}
     {{ form.as_p }}
-    {% if post == "" %}
-        <span>
+    <span>
+        {% if post == "" %}
             <button class='post-p' type="submit">
                 <h6 class='send'>Публікація</h6>
                 <img class='small-images' src="{% static 'images/send.png' %}" alt="">  
             </button> 
-        </span>
-    {% else %}
-        <span>
+        {% else %}
             <button id="{{ post.id }}" class='post-p' type="submit">
                 <h6 class = 'send'>Зберегти</h6>
                 <img class = 'small-images' src="{% static 'images/send.png' %}" alt="">  
             </button>
-        </span>
-    {% endif %}
+        {% endif %}
+    </span>
+    
 </form>
 

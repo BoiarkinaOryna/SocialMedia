@@ -8,14 +8,7 @@
     gap: 1vh;
 }
 
-.my-avatar{
-    width: 5vw;
-    height: 5vw;
-    border-radius: 1234px;
-    background-color: #543C52;
-}
-
-.avatar{
+.my-avatar, .avatar{
     width: 5vw;
     height: 5vw;
     border-radius: 1234px;

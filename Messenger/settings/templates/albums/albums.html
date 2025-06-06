@@ -8,12 +8,24 @@
 {% block links %}
     <link rel="stylesheet" href="{% static 'css/settings.css' %}">
     <link rel="stylesheet" href="{% static 'css/albums/albums.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'css/home/form.css' %}"> -->
 {% endblock %}
 
 {% block content %}
+<!-- style="display: none;" -->
+    <form class = 'album' action="" method = "post">
+        <span id="closePostForm" class="close-post-form">&times;</span>
+        <title class = 'create-album'>Створити альбом</title>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="card-buttons">
+            <button type="button" class = 'cancel'>Скасувати</button>
+            <button class = 'save'>Зберегти</button>
+        </div>
+    </form>
 
     <nav class="settings-links">
-        <a href="/settings" class="is-passive">Особиста інформація</a>
+        <a href="/settings/{{ request.user.pk }}" class="is-passive">Особиста інформація</a>
         <h1 class="is-active">Альбоми</h1>
     </nav>
 
@@ -21,10 +33,13 @@
         <div class="card my-albums">
             <div class="pseudo-header">
                 <h2 class="title">Мої фото</h2>
-                <button class="header-button" type="button">
-                    <img class="header-image" class="header-image" src="{% static 'images/add-image.png' %}" alt="">
-                    Додати фото
-                </button>
+                <form action="" method="post" enctype="multipart/form-data">
+                    <input type="file" style="display: none;">
+                    <button class="header-button" type="button">
+                        <img class="header-image" src="{% static 'images/add-image.png' %}" alt="">
+                        Додати фото
+                    </button>
+                </form>
             </div>
 
             <div class="album-images">

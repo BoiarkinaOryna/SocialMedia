@@ -50,3 +50,16 @@
 .round{
     width: 4vh;
 }
+
+.close-post-form {
+    position: relative;
+    top: 4vh;
+    right: -10vw;
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    user-select: none;
+    z-index: 10;
+    transition: color 0.2s ease;
+}
