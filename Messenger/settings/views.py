@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.generic import UpdateView
 from django.views.generic.list import ListView
@@ -7,6 +7,7 @@ from .forms import EditInfoForm
 from home.models import Image
 from registration.models import Profile
 from .forms import AlbumForm
+from django.http import HttpResponseForbidden
 
 # Create your views here.
 
@@ -25,3 +26,18 @@ class AlbumsView(FormMixin, ListView):
     
     def get_success_url(self):
         return reverse('albums', kwargs={'pk': self.object.pk})
+    
+    def post(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return HttpResponseForbidden()
+
+        form = self.get_form()
+        if form.is_valid():
+            return self.form_valid(form)
+
+    def form_valid(self, form):
+        album = form.save(commit=False)
+        # album.author = Album.objects.get(id=self.request.user.id)
+        album.save()
+        # form.save_m2m()
+        return redirect(f"/settings/{self.request.user.id}/albums")
