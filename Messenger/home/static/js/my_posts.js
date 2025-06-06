@@ -12,9 +12,6 @@ for (let optionDiv of optionDivsList){
         }else if (form.classList.contains("visible-form")){
             form.classList.add("hidden-form");
             form.classList.remove("visible-form");
-        }else if (form.classList.contains("hidden-post-form")){
-            console.loq("appear form =", form)
-            form.classList.remove("hidden-post-form");   
         }
     })
 }

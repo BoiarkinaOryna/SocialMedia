@@ -20,7 +20,7 @@ class EditInfoForm(forms.ModelForm):
                 "placeholder": "Li"
             }),
             "birthday": forms.TextInput(attrs = {
-                "placeholder": "15.04.2001"
+                "placeholder": "2001-09-10"
             }),
             "email": forms.TextInput(attrs = {
                 "placeholder": "you@example.com"
@@ -28,4 +28,9 @@ class EditInfoForm(forms.ModelForm):
             "password": forms.TextInput(attrs = {
                 "placeholder": "⁕⁕⁕⁕⁕⁕⁕⁕⁕⁕"
             })
+        }
+        error_messages = {
+            'birthday': {
+                'invalid': 'Ця дата не є валідною. Спробуйте формат 2000-01-01'
+            }
         }

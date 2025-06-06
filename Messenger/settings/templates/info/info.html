@@ -35,14 +35,15 @@
         </div>
 
         <div class="card personal-info">
-            <div class="pseudo-header">
-                <h2 class="title">Особиста інформація</h2>
-                <button class="header-button" type="button">
-                    <img class="header-image" src="{% static 'images/pen.png' %}" alt="">
-                    Редагувати інформацію
-                </button>
-            </div>
-            <form action="" class="edit-info">
+            <form action="" class="edit-info" method="post">
+                {% csrf_token %}
+                <div class="pseudo-header">
+                    <h2 class="title">Особиста інформація</h2>
+                    <button class="header-button" type="submit">
+                        <img class="header-image" src="{% static 'images/pen.png' %}" alt="">
+                        Редагувати інформацію
+                    </button>
+                </div>
                 {{ form.as_p }}
             </form>
 

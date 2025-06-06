@@ -81,17 +81,19 @@
                         </div>
                     </div>
                     <div class="post-options">
-                        <img src="{% static 'images/dots.png' %}" alt="Menu" id="{{ post.id }}" class="dots">
+                        <div id="{{ post.id }}" class="dots">
+                            <img src="{% static 'images/dots.png' %}">
+                        </div>
                         <div id="menu-{{ post.id }}" class="dropdown-menu">
                             <form class="hidden-form" id="form-{{ post.id }}" method="post" action="{% url 'delete_post' post.id %}">
                                 {% csrf_token %}
-                                <img src="{% static 'images/pen-blue.png' %}" alt="" id="" class="pencil">
-                                <p id="{{ post.id }}" class="showChangePost">Редагувати допис</p>
-                                <img src="{% static 'images/bin.png' %}" alt="" id="" class="bin">
-                                <div class="change-form">
+                                <div class="modal-item showChangePost" id="{{ post.id }}">
+                                    <img src="{% static 'images/pen-blue.png' %}" alt="" class="heder-images">
+                                    <p>Редагувати допис</p>
                                 </div>
                                 <input type="hidden" name="delete_post" value="{{ post.id }}">
-                                <button type="submit">
+                                <button class="modal-item" type="submit">
+                                    <img src="{% static 'images/bin.png' %}" alt="" class="header-images">
                                     Видалити публікацію
                                 </button>
                             </form>

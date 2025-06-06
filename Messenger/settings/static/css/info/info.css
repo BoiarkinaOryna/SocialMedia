@@ -8,6 +8,13 @@
     gap: 1vh;
 }
 
+.my-avatar{
+    width: 5vw;
+    height: 5vw;
+    border-radius: 1234px;
+    background-color: #543C52;
+}
+
 .avatar{
     width: 5vw;
     height: 5vw;
@@ -43,4 +50,8 @@ input{
     padding: 0.5vw;
     border-radius: 1vh;
     border: 1px solid #CDCED2;
+}
+
+.errorlist li{
+    color: #F43F5E;
 }
