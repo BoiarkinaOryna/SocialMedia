@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Чати
+{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/chats.css' %}">
+{% endblock %}
+
+{% block content %}
+    <button class = 'create-ch'>Створити груповий чат</button>
+    <div class = 'my-c'>
+        <img src="{% static 'images/contacts-grey.png' %}" alt="" class="contacts-p">
+        <h1 class = 'contacts'>Контакти</h1>
+        <input class = 'search' type="Пошук" placeholder="Пошук">
+        <img src="{% static 'images/search.png' %}" alt="" class="search-p">
+        <p class = 'name-c'>Jane Cooper</p>
+        <div class = 'image-c'></div>
+    </div>
+{% endblock %}

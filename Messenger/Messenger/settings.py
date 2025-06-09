@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'registration',
     'home',
     'settings',
-    "friends"
+    "friends",
+    "chats"
 ]
 
 MIDDLEWARE = [
@@ -65,6 +66,7 @@ TEMPLATES = [
             BASE_DIR / 'home' / 'templates',
             BASE_DIR / 'settings' / 'templates',
             BASE_DIR / 'friends' / 'templates',
+            BASE_DIR / 'chats' / 'templates'
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -133,6 +135,7 @@ STATICFILES_DIRS = [
     BASE_DIR / 'home' / 'static',
     BASE_DIR / 'settings' / 'static',
     BASE_DIR / 'friends' / 'static',
+    BASE_DIR / 'chats' / 'static'
 ]
 
 MEDIA_URL = '/media/'
@@ -142,6 +145,7 @@ MEDIA_ROOT = [
     BASE_DIR / 'home' / 'media',
     BASE_DIR / 'settings' / 'media',
     BASE_DIR / 'friends' / 'media',
+    BASE_DIR / 'chats' / 'media'
 ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

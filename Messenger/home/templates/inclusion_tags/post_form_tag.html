@@ -1,7 +1,7 @@
 {% load static %}
 
 {% if post == "" %}
-    <form id="create" class="hidden-post-form createPostForm" method="post">
+    <form id="create" class="hidden-post-form createPostForm" method="post" enctype="multipart/form-data">
         <span id="closePostForm" class="close-post-form">&times;</span>
         {% csrf_token %}
         <h1 class = 'creation'>Створення публікації</h1>
@@ -13,6 +13,15 @@
 {% endif %}
     {{ form.as_p }}
     <span>
+        <div id="{{ post.id }}" class="add-image">
+            <input id="{{ post.id }}" class="addImageInput" type="file">
+            <img src="{% static 'images/add-image.png' %}" alt="" class="small-images">
+            <!-- <button id="{{ post.id }}" class="addImageButton" style="display: none;"></button> -->
+        </div>
+        <div class="add-emoji">
+            <img src="{% static 'images/add-emoji.png' %}" alt="" class="small-images">
+            <!-- <button class="addImageButton" style="display: none;"></button> -->
+        </div>
         {% if post == "" %}
             <button class='post-p' type="submit">
                 <h6 class='send'>Публікація</h6>

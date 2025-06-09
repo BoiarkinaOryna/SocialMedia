@@ -78,3 +78,6 @@ class UpdatePrifileView(UpdateView):
     model = Profile
     fields = ["first_name", "last_name", "username"]
     success_url = reverse_lazy("home")
+
+def render_load_image(request):
+    print("path =", request.FILES.get("image"))

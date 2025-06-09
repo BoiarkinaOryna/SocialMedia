@@ -76,6 +76,11 @@ main {
     height: 5.83vh;
 }
 
+.addImageInput{
+    position: absolute;
+    opacity: 0;
+}
+
 .post-form span{
     display: flex;
     justify-content: flex-end;
