@@ -30,13 +30,18 @@ header{
     height: 10vh;
     justify-content: space-between;
     margin-bottom: 5vh;
+    padding-left: 5vw;
     background-color: #FFFFFF;
 }
 
+.unauthorized{
+    justify-content: center;
+}
+
 .logo{
-    position: absolute;
+    /* position: absolute;
     top: 4vh;
-    left: 5vw;
+    left: 5vw; */
     width: 8vw;
     height: 2vh;
 }

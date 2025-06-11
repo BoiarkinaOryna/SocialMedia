@@ -24,23 +24,23 @@
                 <img class="my-avatar" src="{% static 'images/default-avatar.jpg' %}" alt="" >
                 <div class="I-am-online"></div>
                 <span class="username">
-                    <p class="name">Lina Li</p>
-                    <p class="username">@thelili</p>
+                    <p class="name">{{ request.user.first_name }} {{ request.user.last_name }}</p>
+                    <p class="username"> {{ request.user.username }} </p>
                 </span>
             </div>
             <div class="my-status">
                 <span>
-                    <p class="status-number">566</p>
+                    <p class="status-number">{{ my_posts_length }}</p>
                     <p class="status-title">Дописи</p>
                 </span>
                 <div class="vtc-line"></div>
                 <span>
-                    <p class="status-number">12.1K</p>
+                    <p class="status-number">0</p>
                     <p class="status-title">Читачі</p>
                 </span>
                 <div class="vtc-line"></div>
                 <span>
-                    <p class="status-number">222</p>
+                    <p class="status-number">0</p>
                     <p class="status-title">Друзі</p>
                 </span>
             </div>

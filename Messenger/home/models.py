@@ -4,7 +4,7 @@ from registration.models import Profile
 # Create your models here.
 
 class Image(models.Model):
-    path = models.ImageField(upload_to = "post_images")
+    image = models.ImageField(upload_to = "post_images")
 
 class Tag(models.Model):
     tag_name = models.CharField(max_length=50)

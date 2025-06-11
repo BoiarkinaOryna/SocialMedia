@@ -1,3 +1,5 @@
+import os
+
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views.generic.list import ListView
@@ -7,20 +9,25 @@ from .forms import UserPostForm, ChangeUserPostForm, FirstEditInfoForm
 from .models import User_Post, Image
 from registration.models import Profile
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseForbidden
+from django.http import HttpResponseForbidden, HttpRequest, HttpResponse
+from django.core.files.storage import FileSystemStorage
 
 class HomePageView(FormMixin, ListView):
-    queryset = User_Post.objects.all()
+    model = User_Post
     form_class = UserPostForm
     template_name = "home/home.html"
+    context_object_name = "posts" 
     success_url = "/"
 
-    def get(self, request, *args, **kwargs):
-        # user = User_Post.objects.get(request.user)
-        if not request.user.username:
-            print("request.user.id =", request.user.id)
-            return render(request, "home/home.html", {"edit_form": FirstEditInfoForm}, *args, **kwargs)
-        return super().get(request, *args, **kwargs)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        if not self.request.user.username:
+            context["edit_form"] = FirstEditInfoForm()
+        else:
+            context["my_posts_length"] = User_Post.objects.filter(author=self.request.user).count()
+
+        return context
 
     def post(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
@@ -79,5 +86,17 @@ class UpdatePrifileView(UpdateView):
     fields = ["first_name", "last_name", "username"]
     success_url = reverse_lazy("home")
 
-def render_load_image(request):
-    print("path =", request.FILES.get("image"))
+def render_load_image(request: HttpRequest):
+    image = request.FILES.get("image")
+    print("image =", image)
+    # dir_path = os.path.abspath(os.path.join(__file__, "..", "..", "media", "temp_images"))
+    # if not os.path.exists(dir_path):
+    #     os.makedirs(dir_path)
+    # file_path = os.path.abspath(os.path.join(dir_path, image.name))
+    # with open(file_path, 'wb+') as destination:
+    #     for chunk in image.chunks():
+    #         destination.write(chunk)
+
+    Image(image = image).save()
+    
+    return HttpResponse("Saved")

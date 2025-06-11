@@ -226,6 +226,14 @@
     flex-direction: column;
     gap: 0.5vh;
     width: 70vw;
+    justify-content: start;
+    height: 74vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.feed::-webkit-scrollbar {
+    display: none;
 }
 
 .post{
@@ -284,7 +292,12 @@
 .post-images{
     display: flex;
     flex-direction: column;
+    height: fit-content;
     gap: 1vh;
+}
+
+.temp-image-container{
+    display: flex;
 }
 
 .img-in-row{
@@ -295,13 +308,27 @@
 .two-in-row-img{
     width: 11vw;
     height: 10vh;
-    border-radius: 3vh;    
 }
 
 .three-in-row-img{
     width: 10vw;
-    height: 11vh;
-    border-radius: 1vh;   
+    height: 11vh;  
+}
+
+.horizontal-image{
+    width: 10vw;
+    height: 10vh;
+    border-radius: 3vh; 
+    border: 3px solid lightblue;
+    background-repeat: no-repeat; 
+}
+
+.vertical-image{
+    width: 13vw;
+    height: 27vh;
+    border-radius: 1vh;
+    border: 3px solid pink;
+    background-repeat: no-repeat;  
 }
 
 .aktives{

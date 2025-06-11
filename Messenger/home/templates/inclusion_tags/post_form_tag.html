@@ -12,8 +12,12 @@
         <h1 class = 'creation'>Редагування публікації {{ post.id }}</h1>
 {% endif %}
     {{ form.as_p }}
+    <div class="post-images" id="{{ post.id }}">
+        <div class="temp-image-container"></div>
+
+    </div>
     <span>
-        <div id="{{ post.id }}" class="add-image">
+        <div class="add-image">
             <input id="{{ post.id }}" class="addImageInput" type="file">
             <img src="{% static 'images/add-image.png' %}" alt="" class="small-images">
             <!-- <button id="{{ post.id }}" class="addImageButton" style="display: none;"></button> -->

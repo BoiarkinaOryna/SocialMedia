@@ -10,7 +10,7 @@
         {% block links %}{% endblock %}
     </head>
     <body>
-        <header>
+        <header {% if not request.user %}class="unauthorized"{% endif %}>
             <a href="{% url 'home' %}">
                 <img src="{% static 'images/logo.png' %}" alt="" class="logo">
             </a>
@@ -32,7 +32,7 @@
                         </div>
                         <div class="link">
                             <img src="{% static 'images/chats.png' %}" alt="" class="header-image">
-                            <p>Чати</p>
+                            <a href="/chats/1">Чати</a>
                         </div>
                         <div class="link">
                             <img src="{% static 'images/settings.png' %}" alt="" class="header-image">

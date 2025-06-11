@@ -28,7 +28,8 @@ main {
     gap: 2.78vh;
     padding-bottom: 5vh;
     width: 55vw;
-    height: 80vh;
+    height: fit-content;
+    min-height: 80vh;
     background-color: #FFFFFF;
     border: 1px solid #81818D;
     border-radius: 3vh;
