@@ -48,13 +48,20 @@ class HomePageView(FormMixin, ListView):
         return redirect("/")
 
 class MyPostsView(FormMixin, ListView):
-    queryset = User_Post.objects.all()
+    queryset = User_Post
     form_class = ChangeUserPostForm
     template_name = "my_posts/my_posts.html"
-    
-    def get(self, request, *args, **kwargs):
-        self.queryset = User_Post.objects.filter(author = self.request.user.id)
-        return super().get(request, *args, **kwargs)
+    context_object_name = "posts" 
+    success_url = "/"
+
+    def get_queryset(self):
+        return User_Post.objects.filter(author=self.request.user)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["my_posts_length"] = User_Post.objects.filter(author=self.request.user).count()
+
+        return context
 
     def post(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
