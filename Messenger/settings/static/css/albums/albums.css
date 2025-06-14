@@ -69,7 +69,7 @@ hr{
     z-index: 3;
     top: 27vh;
     left: 37vw;
-    display: flex;
+    display: none;
     flex-direction: column;
     gap: 2.78vh;
     padding-bottom: 5vh;
@@ -79,6 +79,7 @@ hr{
     border: 1px solid #81818D;
     border-radius: 3vh;
 }
+
 .album input{
     position: relative;
     top: 1vh;

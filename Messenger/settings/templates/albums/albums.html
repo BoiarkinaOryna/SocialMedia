@@ -12,9 +12,8 @@
 {% endblock %}
 
 {% block content %}
-<!-- style="display: none;" -->
     <form class = 'album' action="" method = "post">
-        <span id="closePostForm" class="close-post-form">&times;</span>
+        <span id="closePostForm" class="close-post-form" onclick="hideForm()">&times;</span>
         <title class = 'create-album'>Створити альбом</title>
         {% csrf_token %}
         {{ form.as_p }}
@@ -55,7 +54,7 @@
         <div class="card no-albums">
             <div class="pseudo-header">
                 <h2 class="title">Немає ще жодного альбому</h2>
-                <button class="header-button" type="button">
+                <button class="header-button" type="button" onclick="showForm()">
                     <img class="header-image" src="{% static 'images/plus.png' %}" alt="">
                     Створити альбом
                 </button>
@@ -101,5 +100,5 @@
 {% endblock %}
 
 {% block scripts %}
-    
+    <script src="{% static 'js/showAlbumForm.js' %}"></script>
 {% endblock %}

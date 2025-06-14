@@ -10,4 +10,4 @@ class FriendsView(ListView):
 
 class FriendPageView(ListView):
     model = Profile
-    template_name = 'friends/friend_page.html'
+    template_name = 'friends/user_prof.html'

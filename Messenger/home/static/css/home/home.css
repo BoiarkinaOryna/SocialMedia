@@ -29,10 +29,11 @@
     width: 5vw;
     height: 5vw;
     border-radius: 1234px;
+    background-color: #543C52;
 }
 
 .I-am-online{
-    position: absolute;
+    position: relative;
     width: 2vh;
     height: 2vh;
     top: 3.5vw;
@@ -161,7 +162,6 @@
     position: absolute;
     top: 12vh;
     gap: 0.5vh;
-    /* z-index: 0; */
     right: 5vw;
     width: 69vw;
 }
