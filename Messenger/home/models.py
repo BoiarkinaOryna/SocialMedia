@@ -4,7 +4,9 @@ from registration.models import Profile
 # Create your models here.
 
 class Image(models.Model):
-    image = models.ImageField(upload_to = "post_images")
+    filename = models.CharField(max_length = 150)
+    file = models.ImageField(upload_to = "images/post")
+    uploaded_at = models.DateTimeField(auto_now = True)
 
 class Tag(models.Model):
     tag_name = models.CharField(max_length=50)
@@ -16,9 +18,9 @@ class User_Post(models.Model):
     title = models.CharField(max_length=200)
     theme = models.CharField(max_length=200, null = True, blank = True)
     content = models.TextField()
-    tags = models.ManyToManyField(Tag, blank = True)
+    tags = models.ManyToManyField(Tag)
     link = models.URLField(null = True, blank = True)
-    images = models.ForeignKey(to = Image, on_delete = models.CASCADE, max_length = 9, null = True, blank = True)
+    images = models.ManyToManyField(Image, max_length = 9, blank = True)
     views = models.BigIntegerField(null = True, default = 0)
     likes = models.BigIntegerField(null = True, default = 0)
 

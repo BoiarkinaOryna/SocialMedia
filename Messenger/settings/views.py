@@ -5,9 +5,10 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import FormMixin
 from .forms import EditInfoForm
 from home.models import Image
+from .models import Album
 from registration.models import Profile
 from .forms import AlbumForm
-from django.http import HttpResponseForbidden
+from django.http import HttpResponseForbidden, HttpRequest, HttpResponse
 
 # Create your views here.
 
@@ -21,8 +22,9 @@ class PersonalInfoView(UpdateView):
 
 class AlbumsView(FormMixin, ListView):
     template_name = "albums/albums.html"
-    model = Image
+    model = Album
     form_class = AlbumForm
+    context_object_name = 'albums'
     
     def get_success_url(self):
         return reverse('albums', kwargs={'pk': self.object.pk})
@@ -41,3 +43,12 @@ class AlbumsView(FormMixin, ListView):
         album.save()
         # form.save_m2m()
         return redirect(f"/settings/{self.request.user.id}/albums")
+    
+def render_save_album_image(requset: HttpRequest):
+    image_file = requset.FILES.get("image")
+    image = Image.objects.create(
+        filename = image_file.name,
+        file = image_file
+    )
+    image.save()
+    return HttpResponse("loaded")

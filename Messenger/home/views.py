@@ -1,4 +1,4 @@
-import os
+import os, shutil
 
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
@@ -9,8 +9,11 @@ from .forms import UserPostForm, ChangeUserPostForm, FirstEditInfoForm
 from .models import User_Post, Image
 from registration.models import Profile
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseForbidden, HttpRequest, HttpResponse
-from django.core.files.storage import FileSystemStorage
+from django.http import HttpResponseForbidden, HttpRequest, JsonResponse
+from django.core.files.base import ContentFile
+from PIL import Image as PILimage
+from io import BytesIO
+
 
 class HomePageView(FormMixin, ListView):
     model = User_Post
@@ -43,8 +46,30 @@ class HomePageView(FormMixin, ListView):
         post = form.save(commit=False)
         post.author = Profile.objects.get(id=self.request.user.id)
 
+        dir_path = os.path.abspath(os.path.join(__file__, "..", "static", "images", "temp_post_images", self.request.user.email))
+        images = []
+        for filename in os.listdir(dir_path):
+            print("filename (home) =", filename)
+            file_path = os.path.join(dir_path, filename)
+
+            # Open image with PIL
+            pil_image = PILimage.open(file_path)
+
+            # Save it to BytesIO
+            image_io = BytesIO()
+            pil_image.save(image_io, format=pil_image.format)
+            image_content = ContentFile(image_io.getvalue(), name=filename)
+            # Create and save the Image model
+            image = Image.objects.create(
+                filename=filename,
+                file=image_content
+            )
+            images.append(image)
+        shutil.rmtree(dir_path)
+
         post.save()
-        form.save_m2m()
+        post.images.set(images) 
+
         return redirect("/")
 
 class MyPostsView(FormMixin, ListView):
@@ -96,14 +121,16 @@ class UpdatePrifileView(UpdateView):
 def render_load_image(request: HttpRequest):
     image = request.FILES.get("image")
     print("image =", image)
-    # dir_path = os.path.abspath(os.path.join(__file__, "..", "..", "media", "temp_images"))
-    # if not os.path.exists(dir_path):
-    #     os.makedirs(dir_path)
-    # file_path = os.path.abspath(os.path.join(dir_path, image.name))
-    # with open(file_path, 'wb+') as destination:
-    #     for chunk in image.chunks():
-    #         destination.write(chunk)
+    dir_path = os.path.abspath(os.path.join(__file__, "..", "static", "images", "temp_post_images", request.user.email))
+    if not os.path.exists(dir_path):
+        os.makedirs(dir_path)
+    file_path = os.path.abspath(os.path.join(dir_path, image.name))
+    with open(file_path, 'wb+') as destination:
+        for chunk in image.chunks():
+            destination.write(chunk)
+        
+    imageEl = PILimage.open(image)
 
-    Image(image = image).save()
+    width, height = imageEl.size
     
-    return HttpResponse("Saved")
+    return JsonResponse({"width": width, "height": height, "email": request.user.email})

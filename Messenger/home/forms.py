@@ -2,7 +2,28 @@ from django import forms
 from .models import User_Post
 from registration.models import Profile
 
+TAG_CHOICES = [
+    (1, '#відпочинок'),
+    (2, '#натхнення'),
+    (3, '#життя'),
+    (4, '#природа'),
+    (5, '#читання'),
+    (6, '#спокій'),
+    (7, '#гармонія'),
+    (8, '#музика'),
+    (9, '#фільми'),
+    (10, '#подорожі'),
+]
 class UserPostForm(forms.ModelForm):
+    tags = forms.MultipleChoiceField(
+        choices = TAG_CHOICES,
+        widget = forms.CheckboxSelectMultiple(attrs={
+            'class': 'tag-div'
+        }),
+        label = '',
+        required = False,
+    )
+    
     class Meta:
         model = User_Post
         fields = ['title', 'theme', 'content', 'tags', 'link']
@@ -18,13 +39,12 @@ class UserPostForm(forms.ModelForm):
             }),
             'link': forms.URLInput(attrs = {
                 'placeholder': 'Вставьте посилання',
-            })
+            }),
         }
         labels = {
             'title': 'Назва публікації',
             'theme': 'Тема публікації',
             'content': '',
-            'tags': '',
             'link': 'Посилання'
         }
         

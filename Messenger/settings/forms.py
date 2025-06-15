@@ -39,7 +39,7 @@ class EditInfoForm(forms.ModelForm):
 class AlbumForm(forms.ModelForm):
     class Meta:
         model = Album
-        fields = ["name", "theme", "year"]
+        fields = ["name", "topic"]
         labels = {
             "name": "Назва альбому",
             "theme": "Оберіть тему",

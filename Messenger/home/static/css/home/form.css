@@ -6,27 +6,29 @@
     z-index: 1;
     position: absolute;
     top: 0;
+    display: flex;
     width: 100vw;
     height: 100vh;
+    overflow-y: auto;
+}
+
+.active-dark-background::-webkit-scrollbar {
+    display: none;
 }
 
 .hidden-post-form {
     display: none;
 }
 
-main {
-    display: flex;
-}
-
 .post-form {
-    position: fixed;
+    position: absolute;
     z-index: 3;
-    top: 10vh;
-    left: 20vw;
+    top: 5vh;
     display: flex;
     flex-direction: column;
-    gap: 2.78vh;
-    padding-bottom: 5vh;
+    justify-content: start;
+    gap: 1vh;
+    padding-top: 3vh;
     width: 55vw;
     height: fit-content;
     min-height: 80vh;
@@ -35,19 +37,26 @@ main {
     border-radius: 3vh;
 }
 
+.text-info{
+    display: flex;
+    height: 65vh;
+    flex-direction: column;
+    width: 55vw;
+}
+
 .creation {
     width: 50vw;
     height: 5.42vh;
     position: relative;
-    top: 4.17vh;
     font-size: 3vh;
 }
 
 .post-form p {
     position: relative;
     flex-direction: column;
+    gap: 1vh;
     width: 50vw;
-    height: 2.8vh;
+    height: fit-content;
     margin: auto;
     size: 16px;
 }
@@ -70,7 +79,6 @@ main {
     padding: 0.5vw;
     border-radius: 0.69vw;
     font-size: 16px;
-    width: 100%;
     box-sizing: border-box;
     border: 1px solid #81818D;
     width: 23.82vw;
@@ -86,6 +94,7 @@ main {
     display: flex;
     justify-content: flex-end;
     width: 50vw;
+    height: 1vh;
 }
 
 .post-p{
@@ -100,10 +109,15 @@ main {
     gap: 0.5vh;
 }
 
+.form-buttons{
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5vw;
+    width: 50vw;
+}
+
 .close-post-form {
-    position: absolute;
-    top: 4vh;
-    right: 3vw;
+    position: relative;
     font-size: 24px;
     font-weight: bold;
     color: black;
@@ -113,19 +127,25 @@ main {
     transition: color 0.2s ease;
 }
 
-select{
+#id_tags{
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    width: 47.57vw;
-    border: none;
-    size: 2;
+    justify-content: start;
+    gap: 0.5vw;
+    width: 50vw;
+}
+  
+.tag-div div label{
+    display: flex;
+    height: 3.5vh;
+    padding: 0 0.1vw;
+    background-color: #E9E5EE;
+    border-radius: 1vh;
+    color: #543C52;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    user-select: none;
+    border: 1px solid transparent;
 }
 
-option{
-    display: inline;
-    height: 2vh;
-    width: fit-content;
-    border-radius: 0.5vh;
-    background-color: #E9E5EE;
-}
+input[type="checkbox"] { display: none; }

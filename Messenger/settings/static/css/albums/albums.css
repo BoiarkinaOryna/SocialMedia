@@ -46,15 +46,20 @@ hr{
     width: 20vh;
     height: 20vh;
     border-radius: 1vh;
-    background-color: #e0dfcf;
+    background-repeat: no-repeat;
 }
 
 .add-image{
     display: flex;
     width: 20vh;
     height: 20vh;
-    border: 1px dotted #81818D;
+    border: 2px dotted #81818D;
     border-radius: 1vh;
+}
+
+.add-image-input{
+    position: absolute;
+    opacity: 0;
 }
 
 .button-bottom{

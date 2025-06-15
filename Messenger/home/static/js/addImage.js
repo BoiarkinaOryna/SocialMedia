@@ -3,12 +3,13 @@ const imageDivList = document.getElementsByClassName("add-image");
 const addImageInputList = document.getElementsByClassName("addImageInput");
 
 const showImageDivList = document.getElementsByClassName("post-image");
-const tempContainer = document.getElementsByClassName("temp-image-container");
+const tempContainer = document.getElementsByClassName("temp-image-container")[0];
 
 for (let addImageInput of addImageInputList){
     addImageInput.addEventListener("change", ()=>{
         let formData = new FormData();
-        imageData = addImageInput.files[0]
+        imageData = addImageInput.files[0];
+        console.log("imageData", imageData);
         formData.append('image', imageData);
         console.log("data =", formData, document.cookie.split("csrftoken=")[1].split(";")[0]);
         $.ajax({
@@ -18,27 +19,32 @@ for (let addImageInput of addImageInputList){
             contentType: false,
             processData: false,
             headers: {'X-CSRFToken': document.cookie.split("csrftoken=")[1].split(";")[0]},
+            success: function(response){showImage(imageData, response.width, response.height, response.email)}
         })
-        showImage(imageData)
     })
 }
 
-function showImage(image){
-    let imageElement = document.createElement("div");
-    const getSizeImg = new Image();
-    url = `http://127.0.0.1:8000/media/post_images/${image.name}`;
-    console.log("url =", url);
-    // getSizeImg. = `url('${url}')`;
-    imageElement.style.backgroundImage = `url('${url}')`;
-    const width = getSizeImg.naturalWidth;
-    const height = getSizeImg.naturalHeight;
-    console.log(width, height);
-    if (width > height){
-        imageElement.classList.add('horizontal-image');
-    } else{
-        imageElement.classList.add('vertical-image');
+function showImage(image, width, height, email) {
+    const container = document.getElementsByClassName("temp-image-container")[0];
+
+    if (typeof staticBase === "undefined") {
+        console.error("staticBase is undefined");
+        return;
     }
-    imageElement.style.backgroundImage = url;
-    console.log("temp cont =", tempContainer);
-    tempContainer[0].appendChild(imageElement);
+
+    const fullPath = `${staticBase}${email}/${image.name}`;
+    console.log("Inserting image at path:", fullPath);
+
+    console.log(width, height);
+    let imgClass;
+    if (width > height){
+        imgClass = 'horizontal-image';
+    } else{
+        imgClass = 'vertical-image';
+    }
+
+    container.insertAdjacentHTML(
+        "afterbegin",
+        `<img src="${fullPath}" class=${imgClass}>`
+    );
 }

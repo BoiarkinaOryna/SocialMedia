@@ -21,8 +21,8 @@
     <div class="my-info">
         <div class="about-me">
             <div class="me">
-                <img class="my-avatar" src="{% static 'images/default-avatar.jpg' %}" alt="">
-                <div class="I-am-online"></div>
+                <div class="my-avatar"><div class="I-am-online"></div></div>
+                
                 <span class="username">
                     <p class="name">{{ request.user.first_name }} {{ request.user.last_name }}</p>
                     <p class="username"> {{ request.user.username }} </p>
