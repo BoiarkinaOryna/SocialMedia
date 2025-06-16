@@ -1,5 +1,5 @@
 from django import forms
-from .models import Profile
+from .models import User
 
 
 # Треба було використовувати ModelForm, а не просто Form
@@ -12,7 +12,7 @@ class UserForm(forms.ModelForm):
         )
     )
     class Meta():
-        model = Profile
+        model = User
         fields = ['email', 'password']
         widgets = {
             'email': forms.TextInput(attrs = {
@@ -31,7 +31,7 @@ class UserForm(forms.ModelForm):
 
 class AuthUserForm(forms.ModelForm):
     class Meta():
-        model = Profile
+        model = User
         fields = ['email', 'password']
         widgets = {
             'email': forms.TextInput(attrs = {

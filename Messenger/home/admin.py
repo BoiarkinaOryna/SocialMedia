@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import User_Post, Tag, Image
+from .models import Post, Tag, Image
 
 # Register your models here.
 
 admin.site.register(Tag)
-admin.site.register(User_Post)
+admin.site.register(Post)
 admin.site.register(Image)

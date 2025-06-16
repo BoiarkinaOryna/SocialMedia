@@ -39,7 +39,7 @@
 
 .text-info{
     display: flex;
-    height: 65vh;
+    height: 55vh;
     flex-direction: column;
     width: 55vw;
 }

@@ -160,6 +160,8 @@
 
 .social-media-feed{
     position: absolute;
+    display: flex;
+    flex-direction: column;
     top: 12vh;
     gap: 0.5vh;
     right: 5vw;
@@ -238,7 +240,6 @@
 
 .post{
     width: 70vw;
-    margin-top: 0.2vw;
     height: fit-content;
     border: 1px solid #CDCED2;
     margin-bottom: 0.1vh;

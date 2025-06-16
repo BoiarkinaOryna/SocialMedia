@@ -42,7 +42,7 @@
             </div>
 
             <div class="album-images">
-                <div class="image delete-top">
+                <div class="image delete-top" style="background-color: bisque;">
                     <button class="header-button round">
                         <img class="header-image" src="{% static 'images/trashcan.png' %}" alt="">
                     </button>
@@ -65,7 +65,7 @@
             {% for album in albums %}
                 
                 <div class="pseudo-header">
-                    <h2 class="title">{{ album.name }}</h2>
+                    <h2 id="albumName" class="title">{{ album.name }}</h2>
                     <div>
                         <button class="header-button round" type="button">
                             <img class="header-image" src="{% static 'images/eye.png' %}" alt="">

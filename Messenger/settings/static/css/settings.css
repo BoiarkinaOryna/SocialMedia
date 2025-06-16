@@ -24,10 +24,17 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    gap: 2vh;
+    justify-content: start;
+    gap: 0.5vh;
     top: 12vh;
     right: 5vw;
-    width: 69vw;
+    width: 70vw;
+    height: 90vh;
+    overflow-y: auto;
+}
+
+.main-block::-webkit-scrollbar {
+    display: none;
 }
 
 .pseudo-header{

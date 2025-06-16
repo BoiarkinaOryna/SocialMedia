@@ -6,8 +6,8 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import FormMixin
 from django.views.generic import DeleteView, UpdateView
 from .forms import UserPostForm, ChangeUserPostForm, FirstEditInfoForm
-from .models import User_Post, Image
-from registration.models import Profile
+from .models import Post, Image
+from registration.models import User, Profile
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseForbidden, HttpRequest, JsonResponse
 from django.core.files.base import ContentFile
@@ -16,7 +16,7 @@ from io import BytesIO
 
 
 class HomePageView(FormMixin, ListView):
-    model = User_Post
+    model = Post
     form_class = UserPostForm
     template_name = "home/home.html"
     context_object_name = "posts" 
@@ -28,7 +28,7 @@ class HomePageView(FormMixin, ListView):
         if not self.request.user.username:
             context["edit_form"] = FirstEditInfoForm()
         else:
-            context["my_posts_length"] = User_Post.objects.filter(author=self.request.user).count()
+            context["my_posts_length"] = Post.objects.filter(author=self.request.user.id).count()
 
         return context
 
@@ -44,7 +44,8 @@ class HomePageView(FormMixin, ListView):
     
     def form_valid(self, form):
         post = form.save(commit=False)
-        post.author = Profile.objects.get(id=self.request.user.id)
+        user = User.objects.get(id = self.request.user.id)
+        post.author = Profile.objects.create(user=user)
 
         dir_path = os.path.abspath(os.path.join(__file__, "..", "static", "images", "temp_post_images", self.request.user.email))
         images = []
@@ -73,18 +74,18 @@ class HomePageView(FormMixin, ListView):
         return redirect("/")
 
 class MyPostsView(FormMixin, ListView):
-    queryset = User_Post
+    queryset = Post
     form_class = ChangeUserPostForm
     template_name = "my_posts/my_posts.html"
     context_object_name = "posts" 
     success_url = "/"
 
     def get_queryset(self):
-        return User_Post.objects.filter(author=self.request.user)
+        return Post.objects.filter(author=self.request.user.id)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["my_posts_length"] = User_Post.objects.filter(author=self.request.user).count()
+        context["my_posts_length"] = Post.objects.filter(author=self.request.user.id).count()
 
         return context
 
@@ -98,25 +99,32 @@ class MyPostsView(FormMixin, ListView):
         
     def form_valid(self, form):
         post = form.save(commit=False)
-        post.author = Profile.objects.get(id=self.request.user.id)
+        # post.author = Profile.objects.get(id=self.request.user.id)
 
         post.save()
-        form.save_m2m()
+        # form.save_m2m()
         return redirect("/my_posts")
 
 class DeletePostView(DeleteView):
-    model = User_Post
+    model = Post
     success_url = reverse_lazy("my_posts")
 
 class UpdatePostView(UpdateView):
-    model = User_Post
-    fields = ['title', 'theme', 'content', 'tags', 'link']
+    model = Post
+    fields = ['title', 'content']
     success_url = reverse_lazy("my_posts")
 
 class UpdatePrifileView(UpdateView):
-    model = Profile
+    model = User
     fields = ["first_name", "last_name", "username"]
     success_url = reverse_lazy("home")
+
+    def post(self, request, *args, **kwargs):
+        profile = Profile.objects.create(
+            user = request.user.id
+        )
+        profile.save()
+        return super().post(request, *args, **kwargs)
 
 def render_load_image(request: HttpRequest):
     image = request.FILES.get("image")

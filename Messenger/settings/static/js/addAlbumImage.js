@@ -7,6 +7,8 @@ for (let addImageInput of addImageInputsList){
         imageData = addImageInput.files[0];
         console.log("imageData", imageData);
         formData.append('image', imageData);
+        const albumName = document.getElementById("albumName").textContent;
+        formData.append('albumName', albumName);
         console.log("data =", formData, document.cookie.split("csrftoken=")[1].split(";")[0]);
         $.ajax({
             url: '/settings/save_album_image',

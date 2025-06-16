@@ -14,9 +14,7 @@
 
 {% block content %}
 
-    <div class="dark-background"></div>
-
-    {% form_for_post "" %}
+    <div class="dark-background">{% form_for_post "" %}</div>
 
     <div class="my-info">
         <div class="about-me">
@@ -133,5 +131,9 @@
 {% block scripts %}
     <script src="{% static 'js/my_posts.js' %}" defer></script>
     <script src="{% static 'js/showForm.js' %}" defer></script>
-    <script src="{% static 'js/loadImage.js' %}" defer></script>
+    <script>
+        const staticBase = "{% static 'images/temp_post_images/' %}";
+    </script>
+    <script src="{% static 'js/jquery-3.7.1.min.js' %}" defer></script>
+    <script src="{% static 'js/addImage.js' %}" defer></script>
 {% endblock %}

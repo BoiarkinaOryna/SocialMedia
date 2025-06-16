@@ -8,7 +8,7 @@ from django.contrib.auth.views import LogoutView
 
 
 from .forms import UserForm, AuthUserForm
-from .models import Profile
+from .models import User
 
 def generate_code():
     str_code = ''
@@ -53,14 +53,14 @@ def validation_view(request: HttpRequest):
         input_code = request.POST.get("code")
         real_code = request.session.get("confirmation_code")
 
-        # if input_code == real_code:
-        data = request.session.get("user_data")
-        user = Profile.objects.create(
-            email=data['email'],
-            password=data['password'],
-        )
-        request.session.pop('confirmation_code', None)
-        request.session.pop('user_data', None)
+        if input_code == real_code:
+            data = request.session.get("user_data")
+            user = User.objects.create(
+                email=data['email'],
+                password=data['password'],
+            )
+            request.session.pop('confirmation_code', None)
+            request.session.pop('user_data', None)
 
         
         return redirect('/registration/authorization')
@@ -77,7 +77,7 @@ def authorization_page(request: HttpRequest):
         try:
             email = request.POST.get("email")
             password = request.POST.get("password")
-            profile = Profile.objects.filter(email = email)[0]
+            profile = User.objects.filter(email = email)[0]
             if password == profile.password:
                 login(request = request, user = profile)
                 return redirect('/')

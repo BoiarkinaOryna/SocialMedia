@@ -51,4 +51,12 @@ def render_save_album_image(requset: HttpRequest):
         file = image_file
     )
     image.save()
+
+    album_name = requset.POST.get('albumName')
+    print("album_name =", album_name)
+    album = Album.objects.get(name = album_name)
+    album.images.add(image)
+
+    album.save()
+
     return HttpResponse("loaded")

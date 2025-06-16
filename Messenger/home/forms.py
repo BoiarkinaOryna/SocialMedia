@@ -1,6 +1,6 @@
 from django import forms
-from .models import User_Post
-from registration.models import Profile
+from .models import Post
+from registration.models import User
 
 TAG_CHOICES = [
     (1, '#відпочинок'),
@@ -25,59 +25,51 @@ class UserPostForm(forms.ModelForm):
     )
     
     class Meta:
-        model = User_Post
-        fields = ['title', 'theme', 'content', 'tags', 'link']
+        model = Post
+        fields = ['title', 'tags', 'content']
         widgets = {
             'title': forms.TextInput(attrs = {
                 'placeholder': 'Напишіть заголовок публікації'
             }),
-            'theme': forms.TextInput(attrs = {
-                'placeholder': 'Напишіть тему публікації',
-            }),
             'content': forms.Textarea(attrs = {
                 'placeholder': 'Напишіть тему публікації',
-            }),
-            'link': forms.URLInput(attrs = {
-                'placeholder': 'Вставьте посилання',
             }),
         }
         labels = {
             'title': 'Назва публікації',
-            'theme': 'Тема публікації',
             'content': '',
-            'link': 'Посилання'
         }
         
 
 class ChangeUserPostForm(forms.ModelForm):
+    tags = forms.MultipleChoiceField(
+        choices = TAG_CHOICES,
+        widget = forms.CheckboxSelectMultiple(attrs={
+            'class': 'tag-div'
+        }),
+        label = '',
+        required = False,
+    )
     class Meta:
-        model = User_Post
-        fields = ['title', 'theme', 'content', 'tags', 'link']
+        model = Post
+        fields = ['title', 'tags', 'content']
         widgets = {
             'title': forms.TextInput(attrs = {
                 'placeholder': 'Змініть заголовок публікації'
             }),
-            'theme': forms.TextInput(attrs = {
-                'placeholder': 'Змініть тему публікації',
-            }),
             'content': forms.Textarea(attrs = {
                 'placeholder': 'Змініть тему публікації',
             }),
-            'link': forms.URLInput(attrs = {
-                'placeholder': 'Вставьте посилання',
-            })
         }
         labels = {
             'title': 'Назва публікації',
-            'theme': 'Тема публікації',
             'content': '',
-            'tags': '',
-            'link': 'Посилання'
+            'tags': ''
         }
 
 class FirstEditInfoForm(forms.ModelForm):
     class Meta:
-        model = Profile
+        model = User
         fields = ["first_name", "last_name", "username"]
         labels = {
             "first_name": "Ім'я",
@@ -95,3 +87,6 @@ class FirstEditInfoForm(forms.ModelForm):
                 "value": "@"
             }),
         }
+        help_texts = {
+               'username': None
+           }

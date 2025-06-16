@@ -153,4 +153,4 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'daria.filinskaya2009@gmail.com'
 EMAIL_HOST_PASSWORD = 'yydl iune krwy ulqj'
 
-AUTH_USER_MODEL = 'registration.Profile'
+# AUTH_USER_MODEL = 'registration.Profile'
