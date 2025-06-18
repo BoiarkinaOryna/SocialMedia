@@ -121,7 +121,7 @@ class UpdatePrifileView(UpdateView):
 
     def post(self, request, *args, **kwargs):
         profile = Profile.objects.create(
-            user = request.user.id
+            user = request.user
         )
         profile.save()
         return super().post(request, *args, **kwargs)
