@@ -47,8 +47,8 @@
             
                 <div class="user-cards-list">
                     {% for user in requests %}
-                        <a href="/friends/friend/{{ user.id }}">
-                            <div class="user-card">
+                        <div class="user-card">
+                            <a href="/friends/friend/{{ user.id }}">
                                 <div class="info">
                                     <div class="avatar">
                                         <div class="is-offline"></div>
@@ -58,14 +58,14 @@
                                         <p class="friend-username">{{ user.username }}</p>
                                     </span>
                                 </div>
-                                <span class="card-buttons">
-                                    <button class="confirm-button">
-                                        Підтвердити
-                                    </button>
-                                    <button class="decline-button">Видалити</button>
-                                </span>
-                            </div>
-                        </a>
+                            </a>
+                            <span class="card-buttons">
+                                <button class="confirm-button" value="requests" button id="{{ user.id }}">
+                                    Підтвердити
+                                </button>
+                                <button class="decline-button" value="delete" button id="{{ user.id }}">Видалити</button>
+                            </span>
+                        </div>
                     {% endfor %}
                     
                 </div>
@@ -78,9 +78,9 @@
                 </div>
             
                 <div class="user-cards-list">
-                    {% for user in recommendations %}
-                        <a href="/friends/friend/{{ user.id }}">
-                            <div class="user-card">
+                    {% for user in recommendations %}   
+                        <div class="user-card">
+                            <a href="/friends/friend/{{ user.id }}">
                                 <div class="info">
                                     <div class="avatar">
                                         <div class="is-offline"></div>
@@ -90,14 +90,14 @@
                                         <p class="friend-username">{{ user.username }}</p>
                                     </span>
                                 </div>
-                                <span class="card-buttons">
-                                    <button class="confirm-button">
-                                            Додати
-                                    </button>
-                                    <button class="decline-button">Видалити</button>
-                                </span>
-                            </div>
-                        </a>
+                            </a>
+                            <span class="card-buttons">
+                                <button class="confirm-button" value="recommendations" button id="{{ user.id }}">
+                                        Додати
+                                </button>
+                                <button class="decline-button">Видалити</button>
+                            </span>
+                        </div>
                     {% endfor %}
                     
                 </div>
@@ -110,9 +110,9 @@
                 </div>
             
                 <div class="user-cards-list">
-                    {% for user in all_friends %}
-                        <a href="/friends/friend/{{ user.id }}">
-                            <div class="user-card">
+                    {% for user in all_friends %}  
+                        <div class="user-card">
+                            <a href="/friends/friend/{{ user.id }}">
                                 <div class="info">
                                     <div class="avatar">
                                         <div class="is-offline"></div>
@@ -122,14 +122,14 @@
                                         <p class="friend-username">{{ user.username }}</p>
                                     </span>
                                 </div>
-                                <span class="card-buttons">
-                                    <button class="confirm-button">
-                                            Повідомлення
-                                    </button>
-                                    <button class="decline-button">Видалити</button>
-                                </span>
-                            </div>
-                        </a>
+                            </a>
+                            <span class="card-buttons">
+                                <button class="confirm-button" value="all_friends" button id="{{ user.id }}">
+                                        Повідомлення
+                                </button>
+                                <button class="decline-button" value="delete" button id="{{ user.id }}">Видалити</button>
+                            </span>
+                        </div>
                     {% endfor %}
                     
                 </div>
@@ -175,7 +175,7 @@
                                         Додати
                                     {% endif %}
                                 </button>
-                                <button type="button" class="decline-button">Видалити</button>
+                                <button type="button" class="decline-button" value="delete" button id="{{ user.id }}">Видалити</button>
                             </span>
                         </div>
                     {% endfor %}

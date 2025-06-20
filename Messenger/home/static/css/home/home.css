@@ -12,7 +12,7 @@
     flex-direction: column;
     width: 20vw;
     height: 28vh;
-    padding: 2vw;
+    padding: 1vw;
     border: 1px solid #CDCED2;
     border-radius: 1vh;
     background-color: #FFFFFF;
@@ -79,6 +79,7 @@
 }
 
 .friends, .chats{
+    justify-content: start;
     gap: 1vh;
 }
 

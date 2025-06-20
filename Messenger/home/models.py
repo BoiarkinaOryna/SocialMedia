@@ -22,9 +22,9 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     # theme = models.CharField(max_length=200, null = True, blank = True)
     content = models.TextField(max_length = 4096)
-    tags = models.ManyToManyField('Tag', blank = True)
+    tags = models.ManyToManyField(Tag, blank = True)
     # link = models.URLField(null = True, blank = True)
-    images = models.ManyToManyField('Image', blank = True, related_name = 'posts_authored')
+    images = models.ManyToManyField(Image, blank = True, related_name = 'posts_authored')
     views = models.ManyToManyField(Profile, blank = True, related_name = 'posts_viewed')
     likes = models.ManyToManyField(Profile, blank = True, related_name = 'posts_liked')
 

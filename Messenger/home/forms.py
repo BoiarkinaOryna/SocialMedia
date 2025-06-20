@@ -1,22 +1,10 @@
 from django import forms
-from .models import Post
+from .models import Post,Tag
 from registration.models import User
 
-TAG_CHOICES = [
-    (1, '#відпочинок'),
-    (2, '#натхнення'),
-    (3, '#життя'),
-    (4, '#природа'),
-    (5, '#читання'),
-    (6, '#спокій'),
-    (7, '#гармонія'),
-    (8, '#музика'),
-    (9, '#фільми'),
-    (10, '#подорожі'),
-]
 class UserPostForm(forms.ModelForm):
-    tags = forms.MultipleChoiceField(
-        choices = TAG_CHOICES,
+    tags = forms.ModelMultipleChoiceField(
+        queryset=Tag.objects.all(),
         widget = forms.CheckboxSelectMultiple(attrs={
             'class': 'tag-div'
         }),
@@ -42,8 +30,8 @@ class UserPostForm(forms.ModelForm):
         
 
 class ChangeUserPostForm(forms.ModelForm):
-    tags = forms.MultipleChoiceField(
-        choices = TAG_CHOICES,
+    tags = forms.ModelMultipleChoiceField(
+        queryset=Tag.objects.all(),
         widget = forms.CheckboxSelectMultiple(attrs={
             'class': 'tag-div'
         }),

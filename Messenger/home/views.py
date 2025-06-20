@@ -7,12 +7,14 @@ from django.views.generic.edit import FormMixin
 from django.views.generic import DeleteView, UpdateView
 from .forms import UserPostForm, ChangeUserPostForm, FirstEditInfoForm
 from .models import Post, Image
+from friends.models import Friendship
 from registration.models import User, Profile
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseForbidden, HttpRequest, JsonResponse
 from django.core.files.base import ContentFile
 from PIL import Image as PILimage
 from io import BytesIO
+from django.db.models import Q
 
 
 class HomePageView(FormMixin, ListView):
@@ -29,6 +31,19 @@ class HomePageView(FormMixin, ListView):
             context["edit_form"] = FirstEditInfoForm()
         else:
             context["my_posts_length"] = Post.objects.filter(author=self.request.user.id).count()
+            friendship_list = Friendship.objects.filter(Q(profile1_id=self.request.user.id) | Q(profile2_id=self.request.user.id), accepted=True)[:3]
+            for friend in friendship_list:
+                if friend.profile1_id == self.request.user.id:
+                    try:
+                        context["my_friends"] = context["my_friends"], User.objects.get(id = Profile.objects.get(id = friend.profile2_id).user_id)
+                    except:
+                        context["my_friends"] = [User.objects.get(id = Profile.objects.get(id = friend.profile2_id).user_id)]
+                else:
+                    try:
+                        context["my_friends"] = context["my_friends"], User.objects.get(id = Profile.objects.get(id = friend.profile1_id).user_id)
+                    except:
+                        context["my_friends"] = [User.objects.get(id = Profile.objects.get(id = friend.profile1_id).user_id)]
+            print("context =", context["my_friends"])
 
         return context
 
@@ -45,30 +60,36 @@ class HomePageView(FormMixin, ListView):
     def form_valid(self, form):
         post = form.save(commit=False)
         user = User.objects.get(id = self.request.user.id)
-        post.author = Profile.objects.create(user=user)
+        try:
+            post.author = Profile.objects.create(user=user)
+        except:
+            post.author = Profile.objects.get(user=user)
+        try:
+            dir_path = os.path.abspath(os.path.join(__file__, "..", "static", "images", "temp_post_images", self.request.user.email))
+            images = []
+            for filename in os.listdir(dir_path):
+                print("filename (home) =", filename)
+                file_path = os.path.join(dir_path, filename)
 
-        dir_path = os.path.abspath(os.path.join(__file__, "..", "static", "images", "temp_post_images", self.request.user.email))
-        images = []
-        for filename in os.listdir(dir_path):
-            print("filename (home) =", filename)
-            file_path = os.path.join(dir_path, filename)
+                # Open image with PIL
+                pil_image = PILimage.open(file_path)
 
-            # Open image with PIL
-            pil_image = PILimage.open(file_path)
-
-            # Save it to BytesIO
-            image_io = BytesIO()
-            pil_image.save(image_io, format=pil_image.format)
-            image_content = ContentFile(image_io.getvalue(), name=filename)
-            # Create and save the Image model
-            image = Image.objects.create(
-                filename=filename,
-                file=image_content
-            )
-            images.append(image)
-        shutil.rmtree(dir_path)
+                # Save it to BytesIO
+                image_io = BytesIO()
+                pil_image.save(image_io, format=pil_image.format)
+                image_content = ContentFile(image_io.getvalue(), name=filename)
+                # Create and save the Image model
+                image = Image.objects.create(
+                    filename=filename,
+                    file=image_content
+                )
+                images.append(image)
+            shutil.rmtree(dir_path)
+        except:
+            pass
 
         post.save()
+        form.save_m2m()
         post.images.set(images) 
 
         return redirect("/")
@@ -85,7 +106,24 @@ class MyPostsView(FormMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["my_posts_length"] = Post.objects.filter(author=self.request.user.id).count()
+
+        if not self.request.user.username:
+            context["edit_form"] = FirstEditInfoForm()
+        else:
+            context["my_posts_length"] = Post.objects.filter(author=self.request.user.id).count()
+            friendship_list = Friendship.objects.filter(Q(profile1_id=self.request.user.id) | Q(profile2_id=self.request.user.id), accepted=True)[:3]
+            for friend in friendship_list:
+                if friend.profile1_id == self.request.user.id:
+                    try:
+                        context["my_friends"] = context["my_friends"], User.objects.get(id = Profile.objects.get(id = friend.profile2_id).user_id)
+                    except:
+                        context["my_friends"] = [User.objects.get(id = Profile.objects.get(id = friend.profile2_id).user_id)]
+                else:
+                    try:
+                        context["my_friends"] = context["my_friends"], User.objects.get(id = Profile.objects.get(id = friend.profile1_id).user_id)
+                    except:
+                        context["my_friends"] = [User.objects.get(id = Profile.objects.get(id = friend.profile1_id).user_id)]
+            print("context =", context["my_friends"])
 
         return context
 
@@ -99,10 +137,38 @@ class MyPostsView(FormMixin, ListView):
         
     def form_valid(self, form):
         post = form.save(commit=False)
-        # post.author = Profile.objects.get(id=self.request.user.id)
+        user = User.objects.get(id = self.request.user.id)
+        try:
+            post.author = Profile.objects.create(user=user)
+        except:
+            post.author = Profile.objects.get(user=user)
+        try:
+            dir_path = os.path.abspath(os.path.join(__file__, "..", "static", "images", "temp_post_images", self.request.user.email))
+            images = []
+            for filename in os.listdir(dir_path):
+                print("filename (home) =", filename)
+                file_path = os.path.join(dir_path, filename)
+
+                # Open image with PIL
+                pil_image = PILimage.open(file_path)
+
+                # Save it to BytesIO
+                image_io = BytesIO()
+                pil_image.save(image_io, format=pil_image.format)
+                image_content = ContentFile(image_io.getvalue(), name=filename)
+                # Create and save the Image model
+                image = Image.objects.create(
+                    filename=filename,
+                    file=image_content
+                )
+                images.append(image)
+            shutil.rmtree(dir_path)
+        except:
+            pass
 
         post.save()
-        # form.save_m2m()
+        form.save_m2m()
+        post.images.set(images) 
         return redirect("/my_posts")
 
 class DeletePostView(DeleteView):
@@ -114,7 +180,7 @@ class UpdatePostView(UpdateView):
     fields = ['title', 'content']
     success_url = reverse_lazy("my_posts")
 
-class UpdatePrifileView(UpdateView):
+class UpdateProfileView(UpdateView):
     model = User
     fields = ["first_name", "last_name", "username"]
     success_url = reverse_lazy("home")

@@ -3,7 +3,7 @@ from django.views.generic import ListView
 from registration.models import Profile, User
 from .models import Friendship
 from django.db.models import Q
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpRequest
 
 # Create your views here.
 
@@ -15,30 +15,34 @@ class FriendsView(ListView):
         context = super().get_context_data(**kwargs)
         context['active'] = 'main'
 
-        user = Profile.objects.get(user_id = self.request.user)
-        print("user =", user)
-        friendships = Friendship.objects.filter(Q(profile1=user) | Q(profile2=user), accepted=False)
-        print("friendships =", friendships)
+        current_user = Profile.objects.get(user_id = self.request.user).id
+        friendships = Friendship.objects.filter(Q(profile2_id=current_user), accepted=False)
 
         users = []
         for friendship in friendships:
-            if friendship.profile1 == user:
-                users.append(User.objects.get(id = Profile.objects.get(id = friendship.profile2_id).user_id))
+            users.append(User.objects.get(id = Profile.objects.get(id = friendship.profile1_id).user_id).id)
+        context["requests"] = User.objects.filter(id__in = users)
+
+        friendships = Friendship.objects.filter(Q(profile1_id=current_user) | Q(profile2_id=current_user))
+        print("friendships =", friendships)
+
+        friends = []
+        for friendship in friendships:
+            if friendship.profile1_id == current_user:
+                friends.append(User.objects.get(id = Profile.objects.get(id = friendship.profile2_id).user_id).id)
             else:
-                users.append(User.objects.get(id = Profile.objects.get(id = friendship.profile1_id).user_id))
-            print("users =", users)
-        context["requests"] = users
+                friends.append(User.objects.get(id = Profile.objects.get(id = friendship.profile1_id).user_id).id)
+           
 
-        context["recommendations"] = User.objects.exclude(id = self.request.user.id)
+        context["recommendations"] = User.objects.exclude(id = self.request.user.id).exclude(id__in = friends)
 
-        user = Profile.objects.get(user_id = self.request.user)
-        print("user =", user)
-        friendships = Friendship.objects.filter(Q(profile1=user) | Q(profile2=user), accepted=True)
+        print("user =", current_user)
+        friendships = Friendship.objects.filter(Q(profile1_id=current_user) | Q(profile2_id=current_user), accepted=True)
         print("friendships =", friendships)
 
         users = []
         for friendship in friendships:
-            if friendship.profile1 == user:
+            if friendship.profile1_id == current_user:
                 users.append(User.objects.get(id = Profile.objects.get(id = friendship.profile2_id).user_id))
             else:
                 users.append(User.objects.get(id = Profile.objects.get(id = friendship.profile1_id).user_id))
@@ -58,18 +62,13 @@ class RequestsView(ListView):
 
     def get_queryset(self):
         user = Profile.objects.get(user_id = self.request.user)
-        print("user =", user)
-        friendships = Friendship.objects.filter(Q(profile1=user) | Q(profile2=user), accepted=False)
-        print("friendships =", friendships)
+        friendships = Friendship.objects.filter(Q(profile2_id=user), accepted=False)
 
         users = []
         for friendship in friendships:
-            if friendship.profile1 == user:
-                users.append(User.objects.get(id = Profile.objects.get(id = friendship.profile2_id).user_id))
-            else:
-                users.append(User.objects.get(id = Profile.objects.get(id = friendship.profile1_id).user_id))
+            users.append(User.objects.get(id = Profile.objects.get(id = friendship.profile1_id).user_id).id)
             print("users =", users)
-        return users
+        return User.objects.filter(id__in = users)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -78,18 +77,32 @@ class RequestsView(ListView):
     
     def post(self, request, *args, **kwargs):
         user_id = request.POST.get("user_id")
+        print("user1 =", user_id, "user2 =", request.user.id)
         friend_request = Friendship.objects.filter(profile1_id = user_id, profile2_id = request.user.id).first()
+        print("friend_request =", friend_request)
         friend_request.accepted = 1
         friend_request.save()
 
-        return self.get_queryset()
+        return JsonResponse({"users": self.queryset})
     
 class RecommendationsView(ListView):
     template_name = "friends/friends.html"
     context_object_name = "all_users"
 
     def get_queryset(self):
-        return User.objects.exclude(id = self.request.user.id)
+        current_user = Profile.objects.get(user_id = self.request.user).id
+        print("user =", current_user)
+        friendships = Friendship.objects.filter(Q(profile1_id=current_user) | Q(profile2_id=current_user))
+        print("friendships =", friendships)
+
+        friends = []
+        for friendship in friendships:
+            if friendship.profile1_id == current_user:
+                friends.append(User.objects.get(id = Profile.objects.get(id = friendship.profile2_id).user_id).id)
+            else:
+                friends.append(User.objects.get(id = Profile.objects.get(id = friendship.profile1_id).user_id).id)
+            print("users =", friends)
+        return User.objects.exclude(id = self.request.user.id).exclude(id__in = friends)
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -104,7 +117,7 @@ class RecommendationsView(ListView):
         )
         friend_request.save()
 
-        return JsonResponse({"status": "ok"})
+        return JsonResponse({"users": self.queryset})
 
 class AllFriendsView(ListView):
     template_name = "friends/friends.html"
@@ -113,19 +126,26 @@ class AllFriendsView(ListView):
     def get_queryset(self):
         user = Profile.objects.get(user_id = self.request.user)
         print("user =", user)
-        friendships = Friendship.objects.filter(Q(profile1=user) | Q(profile2=user), accepted=True)
+        friendships = Friendship.objects.filter(Q(profile1_id=user) | Q(profile2_id=user), accepted=True)
         print("friendships =", friendships)
 
         users = []
         for friendship in friendships:
-            if friendship.profile1 == user:
-                users.append(User.objects.get(id = Profile.objects.get(id = friendship.profile2_id).user_id))
+            if friendship.profile1_id == user:
+                users.append(User.objects.get(id = Profile.objects.get(id = friendship.profile2_id).user_id).id)
             else:
-                users.append(User.objects.get(id = Profile.objects.get(id = friendship.profile1_id).user_id))
+                users.append(User.objects.get(id = Profile.objects.get(id = friendship.profile1_id).user_id).id)
             print("users =", users)
-        return users
+        return User.objects.filter(id__in = users)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['active'] = 'all_friends'
         return context
+    
+
+def render_delete(request: HttpRequest):
+    user_id = request.POST.get("user_id")
+    freindship = Friendship.objects.filter(Q(profile1_id = user_id) | Q(profile2_id = user_id)).filter(Q(profile1_id = request.user.id) | Q(profile2_id = request.user.id)).first()
+    freindship.delete()
+    return JsonResponse({"delete": True})

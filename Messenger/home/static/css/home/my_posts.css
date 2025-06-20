@@ -40,6 +40,4 @@
 .dots{
     z-index: 2;
     position: relative;
-    display: flex;
-    width: 2vw;
 }

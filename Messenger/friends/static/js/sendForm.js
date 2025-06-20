@@ -1,23 +1,32 @@
-let buttonList = document.getElementsByClassName("confirm-button");
-const mainBlock = document.querySelector(".main-block");
+document.addEventListener("click", ()=>{
 
-for(let button of buttonList){
-    button.addEventListener("click", ()=>{
+    let buttonList = document.getElementsByClassName("confirm-button");
+    let decButtonList = document.getElementsByClassName("decline-button");
+    const mainBlock = document.querySelector(".main-block");
 
-        let formData = new FormData();
-        formData.append('user_id', button.id);
-        console.log("data =", formData);
-        let type = button.value;
-        console.log("type =", type)
-        $.ajax({
-            url: `/friends/${type}/`,
-            type: "post",
-            data: formData,
-            contentType: false,
-            processData: false,
-            headers: {'X-CSRFToken': document.cookie.split("csrftoken=")[1].split(";")[0]},
-            // success: function(response){mainBlock.load(`/friends/${type}/`)}
-            success: $(".main-block").load(window.location.href + " .main-block > *")
+    for(let button of buttonList){
+        addListener(button);
+    }
+
+    for (let decButton of decButtonList){
+        addListener(decButton);
+    }
+
+    function addListener(button){
+        button.addEventListener("click", ()=>{
+            let formData = new FormData();
+            formData.append('user_id', button.id);
+            let type = button.value;
+            $.ajax({
+                url: `/friends/${type}/`,
+                type: "post",
+                data: formData,
+                contentType: false,
+                processData: false,
+                headers: {'X-CSRFToken': document.cookie.split("csrftoken=")[1].split(";")[0]},
+                success: function(){$(".main-block").load(window.location.href + " .main-block > *")}
+            })
         })
-    })
-}
+    }
+
+})

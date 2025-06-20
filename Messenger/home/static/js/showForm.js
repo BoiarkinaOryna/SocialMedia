@@ -19,7 +19,7 @@ if (showChangePost != null){
 }
 let formList = [formCreate];
 
-console.log("formList1 =", formList);
+console.log("buttonList =", buttonList);
 if (formChangeList != null){
     for (let element of formChangeList){
         formList.push(element);
@@ -28,27 +28,24 @@ if (formChangeList != null){
 console.log("formList2 =", formList);
 
 for (let button of buttonList){
+    console.log("button", button)
     button.addEventListener("click", ()=>{
-        console.log("formList =", formList);
         darkBackgrond.classList.add("active-dark-background");
         for (form of formList){
             if (form.id == "create"){
-                // console.log("button (create) id =", button.id)
                 if (button.id == "createPublication"){
                     form.classList.add("post-form");
                     form.classList.remove("hidden-post-form");
                 }
             } else{
-                // for (let oneForm of form){
                 let oneForm = form;
-                    console.log("oneForm =", oneForm.id);
-                    console.log("button.id", button.id);
-                    if (oneForm.id == `change${button.id}`){
-                        console.log("1");
-                        form.classList.add("post-form");
-                        form.classList.remove("hidden-post-form");
-                    }
-                // }
+                console.log("oneForm =", oneForm.id);
+                console.log("button.id", button.id);
+                if (oneForm.id == `change${button.id}`){
+                    console.log("1");
+                    form.classList.add("post-form");
+                    form.classList.remove("hidden-post-form");
+                }
             }
         }
 
@@ -56,7 +53,6 @@ for (let button of buttonList){
 }
 
 for (let closeButton of closeButtonList){
-    console.log("closeButton", closeButton)
     closeButton.addEventListener("click", ()=>{
         for (form of formList){
             if (!form.classList.contains("hidden-post-form")){

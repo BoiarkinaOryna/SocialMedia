@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "daphne",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,6 +45,16 @@ INSTALLED_APPS = [
     "friends",
     "chats"
 ]
+
+ASGI_APPLICATION = 'Messenger.asgi.application'
+# Задаємо налаштування за якими Django буде обробляти асинхронні повідомлення від користувачів у чаті 
+CHANNEL_LAYERS = {
+    # Основний канал (канал за замовчуванням)
+    "default": {
+        # Вказуємо що канал працює у пам'яті 
+        "BACKEND" : "channels.layers.InMemoryChannelLayer"
+    }
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

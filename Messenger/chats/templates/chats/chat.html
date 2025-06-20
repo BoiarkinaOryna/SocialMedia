@@ -37,37 +37,125 @@
 
     </div>
     <div class = 'main-s'>
-        <h1 class = 'start'>Почніть нове спілкування</h1>
-        <p class = 'choose'>Оберіть контакт зі списку ліворуч 
-        або створіть групу, щоб почати спілкування</p>
+        {% if not chat_group %}
+            <h1 class='start'>Почніть нове спілкування</h1>
+            <p class='choose'>Оберіть контакт зі списку ліворуч або створіть групу, щоб почати спілкування</p>
+        {% else %}
+            {% for message in message_history %}
+                {{ message.content }}
+            {% endfor %}
+            <form action="" id= 'message'>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button id="sendMessage">></button>
+            </form>
+        {% endif %}
     </div>
-    <div class = 'messages'>
-        <h1 class = 'mes'>Повідомлення</h1>
-        <h2 class = 'all'>Дивитись всі</h2>
-        <div class = 'test'>
-            <div class = 'image-m'></div>
-            <p class = 'name'>Mona Lisa</p>
-            <p class = 'message'>Привіт!Як справи?</p>
-            <p class = 't-d'>09:41</p>
+    <div class='messages'>
+    <h1 class='mes'>Повідомлення</h1>
+    <h2 class='all'>Дивитись всі</h2>
+
+        <div class='msg-item'>
+            <div class='ava-c'></div>
+            <div class='test'>
+                <p class='name'>Mona Lisa</p>
+                <p class='message'>Привіт! Як справи?</p>
+            </div>
+            <p class='t-d'>09:41</p>
         </div>
-        <div class = 'image-c'></div>
-        <p class = 'name'>Ann Ti</p>
-        <p class = 'message'>Привіт!</p>
-        <p class = 't-d'>25.04.2025</p>
-        <div class = 'image-c'></div>
-        <p class = 'name'>Ann Ti</p>
-        <p class = 'message'>Привіт!</p>
-        <p class = 't-d'>25.04.2025</p>
-        <div class = 'image-c'></div>
-        <p class = 'name'>Ann Ti</p>
-        <p class = 'message'>Привіт!</p>
-        <p class = 't-d'>25.04.2025</p>
-        <div class = 'image-c'></div>
-        <p class = 'name'>Ann Ti</p>
-        <p class = 'message'>Привіт!</p>
-        <p class = 't-d'>25.04.2025</p>
+
+        <div class='msg-item'>
+            <div class='ava-c'></div>
+            <div class='test'>
+                <p class='name'>Ann Ti</p>
+                <p class='message'>Привіт!</p>
+            </div>
+            <p class='t-d'>25.04.2025</p>
+        </div>
+        <div class='msg-item'>
+            <div class='ava-c'></div>
+            <div class='test'>
+                <p class='name'>Ann Ti</p>
+                <p class='message'>Привіт!</p>
+            </div>
+            <p class='t-d'>25.04.2025</p>
+        </div>
+        <div class='msg-item'>
+            <div class='ava-c'></div>
+            <div class='test'>
+                <p class='name'>Ann Ti</p>
+                <p class='message'>Привіт!</p>
+            </div>
+            <p class='t-d'>25.04.2025</p>
+        </div>
+        <div class='msg-item'>
+            <div class='ava-c'></div>
+            <div class='test'>
+                <p class='name'>Ann Ti</p>
+                <p class='message'>Привіт!</p>
+            </div>
+            <p class='t-d'>25.04.2025</p>
+        </div>
     </div>
-    <div class = 'group-chats'>
-        <h1 class = 'group-m'>Групові чати</h1>
+
+    <div class="group-chats">
+        <h1 class="group-m">Групові чати</h1>
+        <h2 class="all">Дивитись всі</h2>
+
+        <div class="group-item">
+            <div class="ava2-c"></div>
+            <div class="test">
+                <p class="name2">New group</p>
+                <p class="message2">Привіт!</p>
+            </div>
+            <p class="t-d2">25.04.2025</p>
+        </div>
+
+        <div class="group-item">
+            <div class="ava2-c"></div>
+            <div class="test2">
+                <p class="name2">Ann Ti</p>
+                <p class="message2">Привіт!</p>
+            </div>
+            <p class="t-d2">25.04.2025</p>
+        </div>
+
+        <div class="group-item">
+            <div class="ava2-c"></div>
+            <div class = "test2">
+                <p class="name2">Nessa Ty</p>
+                <p class="message2">Привіт!</p>
+            </div>
+            <p class="t-d2">25.04.2025</p>
+        </div>
+        <div class="group-item">
+            <div class="ava2-c"></div>
+            <div class="test2">
+                <p class="name2">Anna Ti</p>
+                <p class="message2">Привіт!</p>
+            </div>
+            <p class="t-d2">25.04.2025</p>
+        </div>
+        <div class="group-item">
+            <div class="ava2-c"></div>
+            <div class="test2">
+                <p class="name2">Anna Ti</p>
+                <p class="message2">Привіт!</p>
+            </div>
+            <p class="t-d2">25.04.2025</p>
+        </div>
+        <div class="group-item">
+            <div class="ava2-c"></div>
+            <div class="test2">
+                <p class="name2">Anna Ti</p>
+                <p class="message2">Привіт!</p>
+            </div>
+            <p class="t-d2">25.04.2025</p>
+        </div>
+
     </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/findChat.js' %}"></script>
 {% endblock %}

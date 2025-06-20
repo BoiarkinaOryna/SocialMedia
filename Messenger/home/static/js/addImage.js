@@ -13,7 +13,7 @@ for (let addImageInput of addImageInputList){
         formData.append('image', imageData);
         console.log("data =", formData, document.cookie.split("csrftoken=")[1].split(";")[0]);
         $.ajax({
-            url: 'load_image/',
+            url: '/load_image/',
             type: "post",
             data: formData,
             contentType: false,

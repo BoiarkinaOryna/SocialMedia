@@ -1,6 +1,5 @@
 .my-c{
     overflow-y: auto;
-    scrollbar-color:var(#543C52, grey);
     position: absolute;
     top: 19vh;
     left: 5vw;
@@ -12,13 +11,21 @@
     width: 20vw;
     border-radius: 10px;
     border: 1px solid #CDCED2;
+    scrollbar-color: #543C52 #f0f0f0;
+}
+.my-c::-webkit-scrollbar {
+    width: 6px;
+}
+.my-c::-webkit-scrollbar-thumb {
+    background-color: #543C52;
+    border-radius: 10px;
 }
 .contacts{
     position: absolute;
     top: 3vh;
     right: 12vw;
     color: #81818D;
-    font-size: 19px;
+    font-size: 24px;
 }
 .create-ch{
     position: absolute;
@@ -44,9 +51,8 @@
 }
 .contacts-p{
     position: absolute;
-    top: 3.2vh;
+    top: 3.5vh;
     right: 17vw;
-    font-size: 17px;
 }
 .search-p{
     position: relative;
@@ -58,10 +64,16 @@
     flex-direction: column;
     position: relative;
     top: 24vh;
-    left: 1vw;
+    right: 1vw;
     font-weight: bold;
 }
 .image-c{
+    height: fit-content;
+    justify-content: start;
+    display: flex;
+    flex-direction: column;
+    margin-left: 1vw;
+    flex-grow: 1;
     width: 6vh;
     height: 6vh;
     flex-shrink: 0;
@@ -69,7 +81,7 @@
     border-radius: 1234px;
     position: relative;
     top: 19vh;
-    right: 6vw;
+    right: 8vw;
 }
 .main-s{
     position: relative;
@@ -77,78 +89,151 @@
     width: 40vw;
     height:87vh;
     left: 26vw;
-    top: 9.9vh;
+    top: 9vh;
     border: 1px solid #CDCED2;
     border-radius: 10px;
 }
 .start{
     position: relative;
     top: 43.5vh;
-    left: 11vw;
+    left: 14vw;
     font-weight: bolder;
     font-size: 24px;
 }
 .choose{
     position: relative;
+    width: 24vw;
     top: 45vh;
-    left: 6vw;
+    left: 9vw;
     word-break: break-all;
     text-align: center;
 }
-.messages{
-    background-color: white;
-    /* display: flex;
-    align-items: center;
-    padding: 5px 10px;
-    margin: 0;
-    flex-direction: column;
-    gap:10px; */
-    border-radius: 10px;
+.messages {
+    overflow: hidden;
+    position: absolute;
+    top: 10vh;
+    left: 70vw;
     width: 20vw;
-    height: 40vh;
-    position: relative;
-    left: 68vw;
-    bottom: 77vh;
+    height: 41vh;
+    background-color: white;
     border: 1px solid #CDCED2;
+    border-radius: 10px;
+    padding: 1vh 1vw;
+    box-sizing: border-box;
 }
 .mes{
-    position: relative;
-    left: 2vw;
-    top: 2vh;
+    font-size: 1.2vw;
     color: #81818D;
+    margin-bottom: 1vh;
 }
-.all{
-    position: relative;
-    bottom: 0vh;
-    left: 15vw;
-    font-size: 15px;
-}
-.test{
-    background-color: #E9E5EE;
-}
-.t-d{
-    position: relative;
-    left:15vw;
-    bottom: 3vh;
-    /* display: flex;
+.msg-item {
+    display: flex;
     align-items: center;
-    min-height: unset;
-    height:auto;
-    margin: 0 auto;  */
-
-
+    justify-content: space-between;
+    margin-bottom: 1vh;
 }
-.group-chats{
+.ava-c {
+    width: 3vw;
+    height: 3vw;
+    border-radius: 50%;
+    background-color: #CDCED2;
+    flex-shrink: 0;
+}
+.msg-text {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1vw;
+    flex-grow: 1;
+}
+.name {
+    font-weight: bold;
+    font-size: 0.9vw;
+    margin: 0;
+}
+.message {
+    font-size: 0.8vw;
+    margin: 0.2vh 0 0 0;
+    color: #555;
+}
+.t-d {
+    font-size: 0.75vw;
+    color: #999;
+    white-space: nowrap;
+    margin-left: 1vw;
+    flex-shrink: 0;
+}
+.msg-text{
+    height: 7vh;
+    width:20vw;
+}
+
+.group-chats {
     background-color: white;
     border-radius: 10px;
     width: 20vw;
-    height: 40vh;
-    position: relative;
-    left: 68vw;
-    bottom: 75vh;
-    border: 1px solid #CDCED2;
-
+    height: 48vh;
+    position: absolute;
+    left: 70vw;
+    top: 51.5vh;
+    border: 0.1vw solid #CDCED2;
+    overflow: hidden;
+    padding: 1vh 1vw;
+    box-sizing: border-box;
 }
-.group-m{
+
+.group-m {
+    font-size: 1.2vw;
     color: #81818D;
+    margin-bottom: 1vh;
+}
+.all {
+    font-size: 16px;
+    color: #543C52;
+    position: absolute;
+    right: 3vw;
+    top: 1.5vh;
+    cursor: pointer;
+}
+.group-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1vh;
+}
+.ava2-c {
+    width: 3vw;
+    height: 3vw;
+    border-radius: 50%;
+    background-color: #CDCED2;
+    flex-shrink: 0;
+}
+.group-text {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1vw;
+    flex-grow: 1;
+}
+.name2 {
+    font-weight: bold;
+    font-size: 0.9vw;
+    margin: 0;
+}
+.message2 {
+    font-size: 0.8vw;
+    margin: 0.2vh 0 0 0;
+    color: #555;
+}
+.t-d2 {
+    font-size: 0.75vw;
+    color: #999;
+    white-space: nowrap;
+    margin-left: 1vw;
+}
+.test{
+    height: 7vh;
+    width:20vw;
+}
+.test2{
+    height: 7vh;
+    width:20vw;
 }
