@@ -41,14 +41,50 @@
             <h1 class='start'>Почніть нове спілкування</h1>
             <p class='choose'>Оберіть контакт зі списку ліворуч або створіть групу, щоб почати спілкування</p>
         {% else %}
-            {% for message in message_history %}
-                {{ message.content }}
-            {% endfor %}
-            <form action="" id= 'message'>
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button id="sendMessage">></button>
-            </form>
+            <div class="chat-header">
+                <img src="{% static 'images/left.png' %}" alt="" class="left-p">
+                <div class = 'ava-g'></div>
+                <h1 class = 'new-g'>{{ chat_group.name }}</h1>
+                <p class = 'members-o'>3 учасника, 1 в мережі</p>
+                <img src="{% static 'images/points.png' %}" alt="" class="points">
+            </div>
+            
+            <div class="chat-content">
+
+                <div class = 'date-s'>
+                    <p class = 'date2-s'>25 квітня 2025</p>
+                </div>
+                <div id="messagesBlock">
+                    {% for message in message_history %}
+                        <div class="message">
+                            <div class="avatar"></div>
+                            <div class="message-content">
+                                <span class="message-text">
+                                    <h4 class="sender">
+                                        {{ message.author.user.first_name }} {{ message.author.user.last_name }}
+                                    </h4>
+                                    {{ message.content }}
+                                </span>
+                                <div class="message-time">
+                                    {{ message.sent_at }}
+                                    <img src="" alt="" class="small-img">
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <form action="" id= 'message' class="send-form">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <img src="{% static 'images/smile-i.png' %}" alt="" class="smile-i">
+                    <img src="{% static 'images/photo-i.png' %}" alt="" class="photo-i">
+                    <button id="sendMessage">
+                        <img src="{% static 'images/send-i.png' %}" alt="" class="send-i">
+                    </button>
+                </form>
+
+            </div>
+    
         {% endif %}
     </div>
     <div class='messages'>

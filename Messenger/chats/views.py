@@ -26,6 +26,7 @@ class ChatsView(FormView):
             return HttpResponseForbidden('<h1>У Вас немає доступу до цього чату</h1>')
         # Оброблюємо запит 
         for message in ChatMessage.objects.filter(chat_group = chat_group):
+            # message.sent_at = message.sent_at.isoformat()
             message.save()
         return super().dispatch(request, *args, **kwargs)
     
